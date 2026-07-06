@@ -40,9 +40,13 @@ D:\MangaStudio 是 git repo，remote origin = https://github.com/PatrickHung731/
 
 `scripts\make_cover.py`（`--series X` 或 `--all [--redo]`；`--char <id>` 選主角、`--bw` 黑白）→ 主角彩色 key visual（IPAdapter 鎖臉）+ Pillow 疊標題字 → `covers\<name>.png`（3:4, 900x1200）。story2manga 出第一話後**自動生成**（沒有才生）；工作台選項 9 可重生。`scripts\publish.py` 產靜態站到 `docs\`（PNG→WebP、index + read/<slug>.html、共用 docs\reader.js/style.css）；**封面優先用 covers\<name>.png**，沒有才退回第一話第一頁。改封面/出新話後要重跑 publish.py 才更新網站。
 
-## 有聲漫畫影片（narrate）
+## 有聲漫畫影片（narrate）— 唸整篇小說版
 
-`scripts\narrate.py <sb.json> [--pages N] [--out x.mp4]`（=工作台 [v]）→ 乾淨畫格(panels/，無氣泡) + 燒字幕 + 台灣腔配音 → MP4（1080x1440）。配音=**Edge-TTS**（微軟台灣國語，免費/免 GPU/免金鑰，但**需連網**，像 Gemini 那樣走雲端）：男 zh-TW-YunJheNeural、女 zh-TW-HsiaoChenNeural、旁白 zh-TW-HsiaoYuNeural；角色男女聲依 meta.json 性別自動指派。用 ffmpeg（PATH 有，或 imageio-ffmpeg 備援）逐格(image+TTS)成段再 concat。sfx 不配音。輸出 output\<slug>\<slug>_narrated.mp4（在 output/ 內→gitignore 不進 repo）。相依：`edge-tts`（已裝進 ComfyUI venv）。
+`scripts\narrate.py <sb.json> [--voice K] [--color|--bw] [--limit N] [--out x.mp4]`（=工作台 [v]）→
+**唸整篇原始小說**（`output\<slug>\script.txt`，story2manga 生成時自動存的原始 story 全文；沒有才退回串接對白）→ 切句 → 逐句 Edge-TTS → 所有乾淨畫格(panels/)平均分配到旁白時間軸 → 燒字幕 → MP4（1080x1440）。
+做法=**聯合時間軸**（畫格切換點∪句子切換點各一張已燒字幕 frame，concat 成 CFR 幻燈片，再 mux 整段旁白音軌）；ffmpeg 8 注意：`-fps_mode` 不能配 `-r`，幻燈片用純 `-r`。
+配音=**Edge-TTS**（免費/免GPU/免金鑰但**需連網**）。voice key（VOICES）：xiaoxiao(曉曉·最自然,預設) / xiaoyi / yunxi / yunjian(熱血) / yunyang / tw_male / tw_female。試聽檔 `output\_voice_samples\`（7 種）。--color/--bw 選彩色黑白（預設依該話）；--limit N 只唸前 N 句試做。輸出 output/（gitignore 不進 repo）。相依 edge-tts（已裝 ComfyUI venv）。
+※ 若嫌 Edge-TTS 太生硬，下一級是本機表情語音模型（CosyVoice/ChatTTS，需另裝+GPU），尚未接。
 
 ## 字級（對白/旁白太小或擋到角色）
 

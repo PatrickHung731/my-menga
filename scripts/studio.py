@@ -526,6 +526,16 @@ def do_delete():
             shutil.rmtree(out, ignore_errors=True)
     (ROOT / "covers" / f"{name}.png").unlink(missing_ok=True)
     (ROOT / "covers" / f"{name}.webp").unlink(missing_ok=True)
+    
+    # 6. 清除 docs 裡面已發布的殘留網頁與圖片
+    for html in (ROOT / "docs" / "read").glob(f"{name}*.html"):
+        html.unlink(missing_ok=True)
+    for img_dir in (ROOT / "docs" / "images").glob(f"{name}*"):
+        if img_dir.is_dir():
+            shutil.rmtree(img_dir, ignore_errors=True)
+    (ROOT / "docs" / "images" / "covers" / f"{name}.png").unlink(missing_ok=True)
+    (ROOT / "docs" / "images" / "covers" / f"{name}.webp").unlink(missing_ok=True)
+    
     print(f"已清除 {s.get('title_zh', name)}。如果已經發布過，記得再按 [p] 發布一次來更新網站！")
 
 def main():
