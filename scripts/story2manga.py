@@ -121,6 +121,8 @@ def main():
                     help="內容分級：safe=全年齡(預設) / r15=血腥+成年角色輕度性感（無裸露）")
     ap.add_argument("--lang", default=None, choices=["auto", "zh", "en", "ja"],
                     help="對白語言：auto=依故事自動判定(預設) / zh / en / ja")
+    ap.add_argument("--no-deploy", action="store_true",
+                    help="這次不要自動發布到網站/GitHub")
     args = ap.parse_args()
 
     story = Path(args.story).read_text(encoding="utf-8")
@@ -234,6 +236,11 @@ def main():
             print("[封面] 首話完成，自動生成連載封面 ...")
             subprocess.run([sys.executable, str(HERE / "make_cover.py"),
                             "--series", series["name"]])
+
+    # ---- 自動發布：出稿後生網站 + 推 GitHub（連載模式、且是 git repo 才做）----
+    if series is not None and not args.no_deploy and (ROOT / ".git").exists():
+        print("\n[deploy] 出稿完成，自動發布到網站 + GitHub ...")
+        subprocess.run([sys.executable, str(HERE / "deploy.py")])
 
     pages_dir = ROOT / "output" / sb["title"] / "pages"
     print("\n=== 完成！成品: %s ===" % pages_dir)

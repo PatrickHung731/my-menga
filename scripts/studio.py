@@ -172,6 +172,7 @@ def do_redo():
     if run("generate_panels.py", sb_json, "--only", pp, "--redo"):
         run("compose_pages.py", sb_json)
         open_pages(slug)
+        print("改好了。要讓線上網站也更新 → 按 [p] 發布。")
 
 
 def do_dialog():
@@ -196,6 +197,7 @@ def do_dialog():
     ask("改好「存檔」後按 Enter 重拼頁 > ")
     if run("compose_pages.py", sb_json):
         open_pages(slug)
+        print("改好了。要讓線上網站也更新 → 按 [p] 發布。")
 
 
 def do_preview():
@@ -265,6 +267,15 @@ def do_oneshot():
     run("story2manga.py", txt, "--oneshot", "--style", style, "--max-pages", pages)
 
 
+def do_deploy():
+    if not (ROOT / ".git").exists():
+        print("[!] 這裡還不是 git repo，無法推 GitHub。請先請 Claude 幫你接好一次。")
+        return
+    print("發布網站 + 推上 GitHub（改完對白/封面後用這個把線上更新）...")
+    if run("deploy.py"):
+        print("線上網址：https://patrickhung731.github.io/my-menga/")
+
+
 def do_cover():
     s = current_series()
     if s is None:
@@ -287,8 +298,8 @@ def do_cover():
     if bw:
         cmd.append("--bw")
     if run(*cmd):
-        print("封面已更新。想套到網站請重新發布（工作台外跑 publish.py，或問 Claude）。")
-        print("不滿意就再選一次 [9]，會換一張。")
+        print("封面已更新。不滿意就再選一次 [9]，會換一張。")
+        print("要讓線上網站也換成新封面 → 按 [p] 發布。")
 
 
 def do_status():
@@ -325,7 +336,8 @@ def main():
  [2] 出最終話・完結本作           [6] 開新連載 / 切換連載
  [3] 重抽某一格（可先改prompt）   [7] 單篇短篇
  [4] 改對白/搬氣泡 → 重拼頁      [8] 連載狀態/各話提要
- [9] 重新生成封面                 [0] 離開""")
+ [9] 重新生成封面                 [p] 發布網站 / 推上 GitHub
+ [0] 離開""")
         c = ask("選功能 > ")
         try:
             if c == "1":
@@ -346,6 +358,8 @@ def main():
                 do_status()
             elif c == "9":
                 do_cover()
+            elif c in ("p", "P"):
+                do_deploy()
             elif c == "0":
                 break
         except KeyboardInterrupt:

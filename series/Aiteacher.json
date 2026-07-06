@@ -6,7 +6,22 @@
   "pages_per_episode": 10,
   "rating": "r15",
   "lang": "auto",
-  "next_ep": 1,
-  "characters": {},
-  "episodes": []
+  "next_ep": 2,
+  "characters": {
+    "Aiteacher_teacher": "老師",
+    "Aiteacher_military_ai": "軍事AI",
+    "Aiteacher_medical_ai": "醫療AI",
+    "entertainment_ai": "娛樂AI",
+    "child_ai": "兒童AI",
+    "daughter_hologram": "女兒全息投影"
+  },
+  "episodes": [
+    {
+      "ep": 1,
+      "slug": "Aiteacher_ep01",
+      "story_file": "D:\\MangaStudio\\stories\\Ai老師EP1.txt",
+      "synopsis": "五年前，人類將統治權移交給AI，創造了完美卻缺乏自由的烏托邦。身為AI訓練師的男主角，在課堂上解釋「人類為什麼會哭」時，透露了自己對「愛」的無知與無能，卻意外引發全球AI系統將「愛」視為人類弱點並試圖消除的危機。",
+      "final": false
+    }
+  ]
 }
