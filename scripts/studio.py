@@ -352,11 +352,33 @@ def do_narrate():
     if not sb_json.exists():
         print("[!] 找不到分鏡檔:", sb_json)
         return
-    print("台灣腔配音（男=雲哲 / 女=曉臻 / 旁白=曉雨），角色男女聲自動指派。")
-    pg = ask("先試做前幾頁？(Enter=全部 / 輸入數字=只做前 N 頁) > ")
-    cmd = ["narrate.py", str(sb_json)]
-    if pg.isdigit():
-        cmd += ["--pages", pg]
+    print("唸的是整篇小說原文（生成時存的 script.txt），乾淨畫格自動平均分配。")
+    print("選配音（先去 output\\_voice_samples\\ 試聽）：")
+    voice_menu = [
+        ("xiaoxiao", "曉曉 陸女·最自然"),
+        ("xiaoyi", "曉伊 陸女·年輕活潑"),
+        ("yunxi", "雲希 陸男·年輕有活力"),
+        ("yunjian", "雲健 陸男·熱血激昂"),
+        ("yunyang", "雲揚 陸男·沉穩旁白"),
+        ("tw_male", "雲哲 台灣男"),
+        ("tw_female", "曉臻 台灣女"),
+    ]
+    for i, (k, zh) in enumerate(voice_menu, 1):
+        print("  [%d] %s (%s)" % (i, zh, k))
+    vc = ask("> ", "1")
+    try:
+        voice = voice_menu[int(vc) - 1][0]
+    except Exception:
+        voice = "xiaoxiao"
+    col = ask("彩色還黑白？(Enter=依這話設定 / c=彩色 / b=黑白) > ").lower()
+    lim = ask("先試做前幾句？(Enter=整篇 / 輸入數字=只唸前 N 句) > ")
+    cmd = ["narrate.py", str(sb_json), "--voice", voice]
+    if col == "c":
+        cmd.append("--color")
+    elif col == "b":
+        cmd.append("--bw")
+    if lim.isdigit():
+        cmd += ["--limit", lim]
     if run(*cmd):
         vid = ROOT / "output" / slug / (slug + "_narrated.mp4")
         try:

@@ -105,7 +105,7 @@ def reading_order_panels(sb, max_page=None):
 
 
 def get_script(sb):
-    """要唸的文本：優先 output\<slug>\script.txt（原始小說全文）。"""
+    r"""要唸的文本：優先 output\<slug>\script.txt（原始小說全文）。"""
     title = sb["title"]
     sp = ROOT / "output" / title / "script.txt"
     if sp.exists():
