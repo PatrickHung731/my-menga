@@ -276,6 +276,74 @@ def do_deploy():
         print("線上網址：https://patrickhung731.github.io/my-menga/")
 
 
+def _offer_deploy():
+    if (ROOT / ".git").exists():
+        if ask("要順便發布到線上網站嗎？(Enter=是 / n=先不要) > ").lower() != "n":
+            run("deploy.py")
+
+
+def do_restyle():
+    s = current_series()
+    if s is None:
+        print("[!] 沒有進行中的連載。")
+        return
+    print("目前畫風：%s。要改成哪一種？" % s["style"])
+    new_style = choose_style()
+    if new_style == s["style"]:
+        if ask("跟現在一樣，確定要重畫嗎？(y/N) > ").lower() != "y":
+            return
+    col = ask("彩色還黑白？(Enter=不變 / c=彩色 / b=黑白) > ").lower()
+    print("⚠ 這會【重畫整部連載所有頁】＋重繪角色，會跑好一陣子（每格約20~40秒）。")
+    if ask("確定改整部畫風？(y/N) > ").lower() != "y":
+        print("已取消。")
+        return
+    cmd = ["restyle.py", "--series", s["name"], "--style", new_style]
+    if col == "c":
+        cmd.append("--color")
+    elif col == "b":
+        cmd.append("--bw")
+    if run(*cmd):
+        _offer_deploy()
+
+
+def do_change_char():
+    s = current_series()
+    if s is None:
+        print("[!] 沒有進行中的連載。")
+        return
+    if not s["characters"]:
+        print("[!] 這部還沒有角色。")
+        return
+    ids = list(s["characters"].keys())
+    print("要改哪個角色？")
+    for i, cid in enumerate(ids, 1):
+        print("  [%d] %s（%s）" % (i, s["characters"][cid], cid))
+    c = ask("> ")
+    try:
+        char_id = ids[int(c) - 1]
+    except Exception:
+        print("[!] 選擇無效")
+        return
+    print("怎麼改？")
+    print("  直接 Enter = 外觀不變，只換一張臉（換 seed 重抽）")
+    print("  或輸入新的英文外觀 tags（例：orange fur, green eyes, torn ear, scar）")
+    tags = ask("新外觀 tags > ")
+    cmd = ["change_character.py", "--series", s["name"], "--char", char_id]
+    if tags:
+        cmd += ["--tags", tags]
+    g = ask("性別要改嗎？(Enter=不變 / b=改男 1boy / g=改女 1girl) > ").lower()
+    if g == "b":
+        cmd += ["--gender", "1boy"]
+    elif g == "g":
+        cmd += ["--gender", "1girl"]
+    print("⚠ 會重繪這角色，並重畫所有他出場的分格。")
+    if ask("確定？(y/N) > ").lower() != "y":
+        print("已取消。")
+        return
+    if run(*cmd):
+        _offer_deploy()
+
+
 def do_cover():
     s = current_series()
     if s is None:
@@ -337,6 +405,7 @@ def main():
  [3] 重抽某一格（可先改prompt）   [7] 單篇短篇
  [4] 改對白/搬氣泡 → 重拼頁      [8] 連載狀態/各話提要
  [9] 重新生成封面                 [p] 發布網站 / 推上 GitHub
+ [s] 改整部畫風（全部重畫）       [c] 改某個角色（重繪他的分格）
  [0] 離開""")
         c = ask("選功能 > ")
         try:
@@ -360,6 +429,10 @@ def main():
                 do_cover()
             elif c in ("p", "P"):
                 do_deploy()
+            elif c in ("s", "S"):
+                do_restyle()
+            elif c in ("c", "C"):
+                do_change_char()
             elif c == "0":
                 break
         except KeyboardInterrupt:
