@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MangaStudio 漫畫閱讀</title>
+<meta name="description" content="MangaStudio 漫畫閱讀 — MangaStudio 漫畫閱讀">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav__brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zM4 18V6h7v12H4zm9 0V6h7v12h-7z"/></svg><span>小楠漫畫</span></div>
+  <div class="nav__links"></div>
+</nav>
+
+<section class="hero">
+  <h1 class="hero__title">創作漫畫</h1>
+</section>
+
+<section class="series-grid">
+
+  <article class="card" data-expandable>
+    <img class="card__cover" src="images/covers/AYU.webp" alt="阿與的美味麵線 封面" loading="lazy">
+    <div class="card__body">
+      <h2 class="card__title">阿與的美味麵線</h2>
+      <div class="card__meta">
+        <span class="badge badge--ongoing">● 連載中</span>
+        <span class="badge badge--style">電影少女風</span>
+        <span>1 話</span>
+      </div>
+    </div>
+    <div class="episodes">
+      <div class="ep-list">
+      <a href="read/AYU_ep01.html" class="ep-item">
+        <span class="ep-item__num">第 1 話</span>
+        <span class="ep-item__synopsis">夜深人靜，街角的「阿與麵線攤」依舊燈火通明。粗獷的老闆阿與在熱氣蒸騰的攤位前，用他獨特的風格招呼著客人，而一位面生的大學生，正怯生生地觀察著他。</span>
+      </a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-expandable>
+    <img class="card__cover" src="images/covers/catwarrior.webp" alt="貓戰士 封面" loading="lazy">
+    <div class="card__body">
+      <h2 class="card__title">貓戰士</h2>
+      <div class="card__meta">
+        <span class="badge badge--ongoing">● 連載中</span>
+        <span class="badge badge--style">90年代少年漫</span>
+        <span>1 話</span>
+      </div>
+    </div>
+    <div class="episodes">
+      <div class="ep-list">
+      <a href="read/catwarrior_ep01.html" class="ep-item">
+        <span class="ep-item__num">第 1 話</span>
+        <span class="ep-item__synopsis">雷族面臨困境，醫藥貓斑葉從星族獲得預言，一場「火」將拯救貓族。與此同時，家貓火星渴望野外生活，不顧朋友煙灰的警告，隻身闖入森林，卻遭遇一場突如其來的戰鬥。</span>
+      </a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">MangaStudio 漫畫閱讀器</footer>
+<button class="fab-top" title="回到頂部" aria-label="回到頂部"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<script src="reader.js"></script>
+</body>
+</html>
