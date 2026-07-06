@@ -471,6 +471,41 @@ def do_status():
         print("  （還沒出過任何一話）")
 
 
+def do_delete():
+    import shutil
+    files = sorted(SERIES_DIR.glob("*.json")) if SERIES_DIR.exists() else []
+    if not files:
+        print("[!] 找不到任何連載資料。")
+        return
+    print("要刪除哪一部作品？(這會清除分鏡、圖片與設定)")
+    for i, f in enumerate(files, 1):
+        s = json.loads(f.read_text(encoding="utf-8"))
+        print("  [%d] 《%s》(%s)" % (i, s.get("title_zh", ""), s.get("name", "")))
+    c = ask("> ")
+    try:
+        f = files[int(c) - 1]
+    except Exception:
+        print("[!] 選擇無效")
+        return
+    s = json.loads(f.read_text(encoding="utf-8"))
+    name = s["name"]
+    print(f"⚠ 警告：即將永久刪除《{s.get('title_zh', name)}》的所有資料！")
+    if ask("確定刪除？(輸入 y 確定) > ").lower() != "y":
+        print("已取消。")
+        return
+    f.unlink(missing_ok=True)
+    dfile = SERIES_DIR / "default.txt"
+    if dfile.exists() and dfile.read_text(encoding="utf-8").strip() == name:
+        dfile.unlink(missing_ok=True)
+    for sb in (ROOT / "storyboards").glob(f"{name}*.json"):
+        sb.unlink(missing_ok=True)
+    for out in (ROOT / "output").glob(f"{name}*"):
+        if out.is_dir():
+            shutil.rmtree(out, ignore_errors=True)
+    (ROOT / "covers" / f"{name}.png").unlink(missing_ok=True)
+    (ROOT / "covers" / f"{name}.webp").unlink(missing_ok=True)
+    print(f"已清除 {s.get('title_zh', name)}。如果已經發布過，記得再按 [p] 發布一次來更新網站！")
+
 def main():
     print("=" * 56)
     print("   MangaStudio 漫畫工作台（Ctrl+C 或 [0] 離開）")
@@ -492,7 +527,7 @@ def main():
  [9] 重新生成封面                 [p] 發布網站 / 推上 GitHub
  [s] 改整部畫風（全部重畫）       [c] 改某個角色（重繪他的分格）
  [t] 調對白/旁白字級大小          [v] 生成有聲漫畫影片（台灣配音）
- [0] 離開""")
+ [d] 刪除作品（清空生成資料）     [0] 離開""")
         c = ask("選功能 > ")
         try:
             if c == "1":
@@ -523,6 +558,8 @@ def main():
                 do_textsize()
             elif c in ("v", "V"):
                 do_narrate()
+            elif c in ("d", "D"):
+                do_delete()
             elif c == "0":
                 break
         except KeyboardInterrupt:

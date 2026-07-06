@@ -210,6 +210,11 @@ def main():
     run(cmd)
     run([sys.executable, str(HERE / "compose_pages.py"), str(sb_path)])
 
+    # ---- 存一份「要唸的劇本」＝原始小說全文（給有聲漫畫 narrate.py 用）----
+    out_root = ROOT / "output" / sb["title"]
+    out_root.mkdir(parents=True, exist_ok=True)
+    (out_root / "script.txt").write_text(story, encoding="utf-8")
+
     # ---- 連載進度存檔 ----
     if series is not None:
         series["episodes"].append({

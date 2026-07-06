@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
-r"""有聲漫畫：乾淨畫格（無字幕）＋ 台灣腔配音唸劇本 ＋ 燒進字幕 → MP4 影片。
+"""有聲漫畫（唸整篇小說版）：乾淨畫格輪播 + 旁白唸「整篇原始小說文本」+ 燒字幕 → MP4。
 
-配音用 Edge-TTS（微軟台灣國語聲音，免費、免 GPU、免金鑰）：
-  男 zh-TW-YunJheNeural / 女 zh-TW-HsiaoChenNeural / 旁白 zh-TW-HsiaoYuNeural
-角色男女聲依 characters\<id>\meta.json 的性別自動指派。
+- 唸的內容 = 生成時存下的 output\<slug>\script.txt（原始小說全文），不是只唸對話框。
+- 所有乾淨畫格(panels/) 自動平均分配到整段旁白的時間軸上。
+- 可選彩色/黑白、可選配音聲音。
+
+配音 = Edge-TTS（免費/免 GPU/免金鑰，需連網）。聲音清單見 VOICES。
 
 用法:
   python narrate.py storyboards\catwarrior_ep01.json
-  python narrate.py <sb.json> --pages 2          # 只做前 2 頁（試做）
-  python narrate.py <sb.json> --out D:\...\x.mp4  # 指定輸出
+  python narrate.py <sb.json> --voice xiaoxiao --bw
+  python narrate.py <sb.json> --limit 4          # 只唸前 4 句試做
 """
 import argparse
 import asyncio
@@ -30,16 +32,21 @@ try:
 except Exception:
     pass
 
-# ── 台灣腔聲音 ──
-VOICE_MALE = "zh-TW-YunJheNeural"
-VOICE_FEMALE = "zh-TW-HsiaoChenNeural"
-VOICE_NARRATOR = "zh-TW-HsiaoYuNeural"
+# ── 可選聲音（key → edge-tts voice）──
+VOICES = {
+    "xiaoxiao": "zh-CN-XiaoxiaoNeural",   # 陸女·最自然（預設）
+    "xiaoyi":   "zh-CN-XiaoyiNeural",     # 陸女·年輕活潑
+    "yunxi":    "zh-CN-YunxiNeural",      # 陸男·年輕有活力
+    "yunjian":  "zh-CN-YunjianNeural",    # 陸男·熱血激昂
+    "yunyang":  "zh-CN-YunyangNeural",    # 陸男·沉穩旁白
+    "tw_male":  "zh-TW-YunJheNeural",     # 台灣男
+    "tw_female": "zh-TW-HsiaoChenNeural",  # 台灣女
+}
+DEFAULT_VOICE = "xiaoxiao"
 
-# ── 影片參數 ──
-VW, VH = 1080, 1440           # 3:4 直式畫布
+VW, VH = 1080, 1440
 FPS = 30
 BG = (18, 18, 18)
-
 FONT_BOLD = [r"C:\Windows\Fonts\msjhbd.ttc", r"C:\Windows\Fonts\msjh.ttc"]
 _fc = {}
 
@@ -64,12 +71,8 @@ def ffmpeg_bin():
     return imageio_ffmpeg.get_ffmpeg_exe()
 
 
-def ffprobe_bin():
-    return shutil.which("ffprobe")
-
-
 FFMPEG = ffmpeg_bin()
-FFPROBE = ffprobe_bin()
+FFPROBE = shutil.which("ffprobe")
 
 
 def audio_dur(path):
@@ -83,81 +86,71 @@ def audio_dur(path):
     return 2.0
 
 
-def reading_order(page):
-    """漫畫閱讀序：由上到下每列，列內由右到左（=layout 列表順序）。"""
-    order = []
-    for row in page["layout"]:
-        order.extend(row)
-    pmap = {p["id"]: p for p in page["panels"]}
-    return [pmap[i] for i in order if i in pmap]
-
-
-def load_voices(sb):
-    """char_id -> (voice, 中文名)。性別讀 meta.json。"""
-    vmap = {}
-    cdir = ROOT / "characters"
-    for panel_chars in [p.get("characters", []) for pg in sb["pages"] for p in pg["panels"]]:
-        for cid in panel_chars:
-            if cid in vmap:
-                continue
-            d = cdir / cid
-            gender = "1boy"
-            zh = cid
-            mf = d / "meta.json"
-            if mf.exists():
-                m = json.loads(mf.read_text(encoding="utf-8"))
-                if re.search(r"\b1girl\b", m.get("positive", "")):
-                    gender = "1girl"
-            zf = d / "name_zh.txt"
-            if zf.exists():
-                zh = zf.read_text(encoding="utf-8").strip() or cid
-            vmap[cid] = (VOICE_FEMALE if gender == "1girl" else VOICE_MALE, zh)
-    return vmap
-
-
-def clean_text(t):
-    return t.replace("\n", " ").replace("｜", "—").strip()
-
-
-def build_lines(sb, max_page=None):
-    """攤平成 [(panel_key, panel_img_path, speaker_zh, text, voice, is_narration)]。
-    沒對白的畫格保留一筆 text=None（靜音停頓）。"""
-    vmap = load_voices(sb)
+def reading_order_panels(sb, max_page=None):
+    """所有乾淨畫格路徑，依漫畫閱讀序（上→下、右→左）。"""
     title = sb["title"]
-    panels_dir = ROOT / "output" / title / "panels"
+    pdir = ROOT / "output" / title / "panels"
     out = []
     for page in sb["pages"]:
         if max_page and page["page"] > max_page:
             continue
-        for panel in reading_order(page):
-            key = "p%02d_%02d" % (page["page"], panel["id"])
-            img = panels_dir / (key + ".png")
-            spoken = [d for d in panel.get("dialogues", [])
-                      if d.get("type") in (None, "speech", "shout", "narration")]
-            if not spoken:
-                out.append((key, img, None, None, None, False))
-                continue
-            for d in spoken:
-                txt = clean_text(d.get("text", ""))
-                if not txt:
-                    continue
-                if d.get("type") == "narration":
-                    out.append((key, img, None, txt, VOICE_NARRATOR, True))
-                else:
-                    voice, zh = vmap.get(d.get("speaker"), (VOICE_NARRATOR, None))
-                    out.append((key, img, zh, txt, voice, False))
+        pmap = {p["id"]: p for p in page["panels"]}
+        for row in page["layout"]:
+            for pid in row:
+                if pid in pmap:
+                    f = pdir / ("p%02d_%02d.png" % (page["page"], pid))
+                    if f.exists():
+                        out.append(f)
     return out
 
 
-async def tts(text, voice, path, shout=False):
-    rate = "+12%" if shout else "+0%"
-    c = edge_tts.Communicate(text, voice, rate=rate)
-    await c.save(str(path))
+def get_script(sb):
+    """要唸的文本：優先 output\<slug>\script.txt（原始小說全文）。"""
+    title = sb["title"]
+    sp = ROOT / "output" / title / "script.txt"
+    if sp.exists():
+        t = sp.read_text(encoding="utf-8").strip()
+        if t:
+            return t
+    # 退回：把所有對白+旁白串起來
+    parts = []
+    for page in sb["pages"]:
+        for p in page["panels"]:
+            for d in p.get("dialogues", []):
+                if d.get("type") != "sfx" and d.get("text"):
+                    parts.append(d["text"].replace("\n", ""))
+    return "。".join(parts)
+
+
+def split_sentences(text, hard=40):
+    """切成適合配音+字幕的短句（句末標點切，過長再用逗號/長度切）。"""
+    text = re.sub(r"\s+", "", text)
+    rough = re.split(r"(?<=[。！？!?；;…])", text)
+    chunks = []
+    for seg in rough:
+        seg = seg.strip()
+        if not seg:
+            continue
+        if len(seg) <= hard:
+            chunks.append(seg); continue
+        # 太長 → 用逗號切
+        sub = re.split(r"(?<=[，,、])", seg)
+        buf = ""
+        for s in sub:
+            if len(buf) + len(s) <= hard:
+                buf += s
+            else:
+                if buf:
+                    chunks.append(buf)
+                buf = s
+        if buf:
+            chunks.append(buf)
+    return [c for c in chunks if c]
 
 
 def fit_panel(img_path, color):
     canvas = Image.new("RGB", (VW, VH), BG)
-    if img_path.exists():
+    if img_path and img_path.exists():
         im = Image.open(img_path).convert("RGB")
         if not color:
             im = im.convert("L").convert("RGB")
@@ -168,107 +161,142 @@ def fit_panel(img_path, color):
     return canvas
 
 
-def draw_subtitle(canvas, speaker_zh, text):
+def draw_subtitle(canvas, text):
     if not text:
         return canvas
     d = ImageDraw.Draw(canvas, "RGBA")
     band_h = 250
     d.rectangle([0, VH - band_h, VW, VH], fill=(0, 0, 0, 205))
-    fs = 48
+    fs = 46
     f = font(fs)
-    # 換行（每行約 16 字）
-    maxc = 16
-    lines = []
-    for i in range(0, len(text), maxc):
-        lines.append(text[i:i + maxc])
-    lines = lines[:3]
-    y = VH - band_h + (band_h - len(lines) * int(fs * 1.3)) // 2
-    if speaker_zh:
-        d.text((40, VH - band_h + 16), speaker_zh + "：", font=font(34),
-               fill=(255, 214, 120), stroke_width=3, stroke_fill=(0, 0, 0))
-        y += 10
+    maxc = 17
+    lines = [text[i:i + maxc] for i in range(0, len(text), maxc)][:3]
+    y = VH - band_h + (band_h - len(lines) * int(fs * 1.32)) // 2
     for ln in lines:
-        d.text((VW // 2, y + int(fs * 0.65)), ln, font=f, fill="white",
+        d.text((VW // 2, y + int(fs * 0.66)), ln, font=f, fill="white",
                anchor="mm", stroke_width=4, stroke_fill=(0, 0, 0))
-        y += int(fs * 1.3)
+        y += int(fs * 1.32)
     return canvas
 
 
-def make_segment(frame_png, audio_mp3, seg_mp4, tail=0.4, silence=1.2):
-    common = ["-c:v", "libx264", "-tune", "stillimage", "-pix_fmt", "yuv420p",
-              "-r", str(FPS), "-c:a", "aac", "-ar", "44100", "-ac", "2", "-b:a", "128k"]
-    if audio_mp3:
-        dur = audio_dur(audio_mp3) + tail
-        cmd = [FFMPEG, "-y", "-loop", "1", "-framerate", str(FPS), "-i", str(frame_png),
-               "-i", str(audio_mp3), "-t", "%.2f" % dur, "-af", "apad"] + common + [str(seg_mp4)]
-    else:
-        cmd = [FFMPEG, "-y", "-loop", "1", "-framerate", str(FPS), "-i", str(frame_png),
-               "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
-               "-t", "%.2f" % silence] + common + [str(seg_mp4)]
-    subprocess.run(cmd, capture_output=True)
+async def tts(text, voice, path):
+    await edge_tts.Communicate(text, voice).save(str(path))
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("storyboard")
-    ap.add_argument("--pages", type=int, default=None, help="只做前 N 頁（試做）")
+    ap.add_argument("--voice", default=DEFAULT_VOICE, help="|".join(VOICES))
+    grp = ap.add_mutually_exclusive_group()
+    grp.add_argument("--color", action="store_true")
+    grp.add_argument("--bw", action="store_true")
+    ap.add_argument("--limit", type=int, default=None, help="只唸前 N 句（試做）")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
+    voice = VOICES.get(args.voice, args.voice)
     sb = json.loads(Path(args.storyboard).read_text(encoding="utf-8"))
     title = sb["title"]
     color = bool(sb.get("color", False))
-    lines = build_lines(sb, args.pages)
-    if not lines:
-        print("[!] 這一話沒有可配音的內容")
-        sys.exit(1)
+    if args.color:
+        color = True
+    if args.bw:
+        color = False
+
+    sentences = split_sentences(get_script(sb))
+    if args.limit:
+        sentences = sentences[:args.limit]
+    if not sentences:
+        print("[!] 找不到要唸的文本"); sys.exit(1)
+    panels = reading_order_panels(sb)
+    if not panels:
+        print("[!] 找不到乾淨畫格 panels/"); sys.exit(1)
 
     out_mp4 = Path(args.out) if args.out else ROOT / "output" / title / (title + "_narrated.mp4")
     out_mp4.parent.mkdir(parents=True, exist_ok=True)
-
     tmp = Path(tempfile.mkdtemp(prefix="narrate_"))
-    print("[有聲漫畫] 《%s》共 %d 段，配音+合成中 ..." % (title, len(lines)))
+    print("[有聲漫畫] 《%s》唸小說全文：%d 句、%d 畫格，聲音=%s（%s）"
+          % (title, len(sentences), len(panels), args.voice, "彩色" if color else "黑白"))
 
-    seg_list = []
-    for idx, (key, img, spk, text, voice, is_narr) in enumerate(lines):
-        frame = fit_panel(img, color)
-        draw_subtitle(frame, spk, text)
-        frame_png = tmp / ("f%04d.png" % idx)
-        frame.save(frame_png)
+    # 1) 逐句配音（尾端加 0.3s 停頓），記錄每句時長
+    durs, audios = [], []
+    for i, s in enumerate(sentences):
+        raw = tmp / ("r%04d.mp3" % i)
+        try:
+            asyncio.run(tts(s, voice, raw))
+        except Exception as e:
+            print("  [警告] 配音失敗：%s" % e); continue
+        pad = tmp / ("a%04d.m4a" % i)
+        subprocess.run([FFMPEG, "-y", "-i", str(raw), "-af", "apad=pad_dur=0.3",
+                        "-c:a", "aac", "-b:a", "160k", str(pad)], capture_output=True)
+        durs.append(audio_dur(pad)); audios.append(pad)
+        if (i + 1) % 8 == 0:
+            print("  配音 %d/%d" % (i + 1, len(sentences)))
+    if not audios:
+        print("[!] 配音全部失敗（需連網）"); sys.exit(1)
 
-        audio_mp3 = None
-        if text:
-            audio_mp3 = tmp / ("a%04d.mp3" % idx)
-            try:
-                asyncio.run(tts(text, voice, audio_mp3))
-            except Exception as e:
-                print("  [警告] 配音失敗(%s)：%s" % (key, e))
-                audio_mp3 = None
-        seg = tmp / ("s%04d.mp4" % idx)
-        make_segment(frame_png, audio_mp3, seg)
-        if seg.exists():
-            seg_list.append(seg)
-        if (idx + 1) % 10 == 0:
-            print("  ... %d/%d" % (idx + 1, len(lines)))
+    T = sum(durs)
+    N = len(panels)
+    panel_dur = T / N
+    sent_start = [sum(durs[:i]) for i in range(len(durs))]
 
-    # 串接
-    listfile = tmp / "list.txt"
-    listfile.write_text("".join("file '%s'\n" % s.as_posix() for s in seg_list), encoding="utf-8")
-    r = subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(listfile),
-                        "-c", "copy", str(out_mp4)], capture_output=True, text=True)
-    if r.returncode != 0 or not out_mp4.exists():
-        # 退回重新編碼串接
-        subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(listfile),
-                        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac",
-                        str(out_mp4)], capture_output=True)
+    # 2) 合成整段旁白音軌
+    alist = tmp / "alist.txt"
+    alist.write_text("".join("file '%s'\n" % a.as_posix() for a in audios), encoding="utf-8")
+    narration = tmp / "narration.m4a"
+    subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(alist),
+                    "-c", "copy", str(narration)], capture_output=True)
 
+    # 3) 聯合時間軸（畫格切換點 ∪ 句子切換點）→ 每段一張已燒字幕的 frame
+    bounds = set([0.0, T])
+    for k in range(1, N):
+        bounds.add(round(k * panel_dur, 3))
+    for st in sent_start[1:]:
+        bounds.add(round(st, 3))
+    times = sorted(t for t in bounds if 0 <= t <= T)
+
+    def sent_at(t):
+        idx = 0
+        for i, st in enumerate(sent_start):
+            if t >= st - 1e-6:
+                idx = i
+        return sentences[idx]
+
+    concat = tmp / "vlist.txt"
+    lines_out = []
+    for j in range(len(times) - 1):
+        t0, t1 = times[j], times[j + 1]
+        if t1 - t0 < 0.05:
+            continue
+        pidx = min(N - 1, int((t0 + 1e-4) / panel_dur))
+        frame = fit_panel(panels[pidx], color)
+        draw_subtitle(frame, sent_at(t0))
+        fp = tmp / ("f%04d.png" % j)
+        frame.save(fp)
+        lines_out.append("file '%s'\nduration %.3f\n" % (fp.as_posix(), t1 - t0))
+    if lines_out:
+        lines_out.append(lines_out[-1].split("\n")[0] + "\n")  # 重複最後一張（concat 慣例）
+    concat.write_text("".join(lines_out), encoding="utf-8")
+
+    slideshow = tmp / "slide.mp4"
+    r1 = subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
+                         "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                         str(slideshow)], capture_output=True, text=True)
+    if not slideshow.exists():
+        print("[!] 影像串接失敗：\n" + (r1.stderr or "")[-800:])
+        shutil.rmtree(tmp, ignore_errors=True); sys.exit(1)
+
+    # 4) 影像 + 旁白 → 成品
+    r = subprocess.run([FFMPEG, "-y", "-i", str(slideshow), "-i", str(narration),
+                        "-c:v", "copy", "-c:a", "aac",
+                        "-b:a", "160k", "-shortest", str(out_mp4)], capture_output=True, text=True)
+    ok = out_mp4.exists()
+    err = r.stderr or ""
     shutil.rmtree(tmp, ignore_errors=True)
-    if out_mp4.exists():
-        dur = audio_dur(out_mp4)
-        print("[有聲漫畫] 完成！→ %s（約 %.0f 秒）" % (out_mp4, dur))
+    if ok:
+        print("[有聲漫畫] 完成！→ %s（約 %.0f 秒）" % (out_mp4, T))
     else:
-        print("[!] 合成失敗，請檢查 ffmpeg。")
-        sys.exit(1)
+        print("[!] 合成失敗：\n" + err[-800:]); sys.exit(1)
 
 
 if __name__ == "__main__":
