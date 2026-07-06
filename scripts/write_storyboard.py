@@ -30,6 +30,7 @@ JSON 格式（鍵名固定，照抄結構）:
 {{
   "title": "英文小寫slug（字母數字底線，當資料夾名）",
   "synopsis": "這一話的前情提要，2~3句話（語言必須與故事原文相同，下一話開頭連戲用）",
+  "style": "如果你被要求自動判定風格，請填入你選的風格代碼",
   "new_characters": [
     {{"name": "英文小寫id", "name_zh": "角色在故事中的名稱（語言與故事原文相同）", "tags": "外觀 danbooru tags 英文（髮型/髮色/眼睛/服裝/體型），絕不含 1boy/1girl 人數詞", "gender": "1boy 或 1girl"}}
   ],
@@ -138,7 +139,7 @@ def lang_rule(lang):
 
 
 def build_prompt(story, max_pages=None, exact_pages=None, cast=None, prev_synopses=None,
-                 final=False, rating="safe", lang="zh"):
+                 final=False, rating="safe", lang="zh", style="shonen_90s"):
     if cast is None:
         cast = _global_cast()
     existing = "\n".join(_char_line(cid, zh) for cid, zh in cast.items()) \
@@ -161,6 +162,10 @@ def build_prompt(story, max_pages=None, exact_pages=None, cast=None, prev_synops
                   "絕對不要留下回引子或懸念鉤子。\n")
     if rating == "r15":
         limit += R15_RULE
+    if style == "auto":
+        style_list = ", ".join(STYLE_PRESETS.keys())
+        limit += ("★風格自動判定：請從以下風格代碼中挑選一個最適合此故事的風格：[%s]，"
+                  "並填入 JSON 的 `style` 欄位。\n" % style_list)
     limit += lang_rule(lang)
     return PROMPT_TEMPLATE.format(existing_chars=existing, prev_context=prev,
                                   page_limit=limit, story=story.strip())
@@ -197,7 +202,7 @@ def write_storyboard(story_text, engine="gemini", model=None, style="shonen_90s"
         print("[編劇] 對白語言自動判定：%s" % LANG_NAME.get(lang, lang))
     prompt = build_prompt(story_text, max_pages=max_pages, exact_pages=exact_pages,
                           cast=cast, prev_synopses=prev_synopses, final=final,
-                          rating=rating, lang=lang)
+                          rating=rating, lang=lang, style=style)
     last_err = None
     for attempt in range(retries + 1):
         try:
@@ -213,7 +218,14 @@ def write_storyboard(story_text, engine="gemini", model=None, style="shonen_90s"
     else:
         raise RuntimeError("編劇 LLM 連續失敗: %s" % last_err)
 
-    if style not in STYLE_PRESETS:
+    if style == "auto":
+        style = sb.get("style", "shonen_90s")
+        if style not in STYLE_PRESETS:
+            print("[警告] 自動判定的風格 %s 無效，改用 shonen_90s" % style)
+            style = "shonen_90s"
+        else:
+            print("[編劇] AI 自動判定最適合的風格：%s" % style)
+    elif style not in STYLE_PRESETS:
         print("[警告] 未知風格 %s，改用 shonen_90s" % style)
         style = "shonen_90s"
     sb["style"] = style
@@ -237,7 +249,7 @@ def main():
     ap.add_argument("story", help="故事 txt 檔路徑")
     ap.add_argument("--engine", default="gemini", choices=["gemini", "ollama"])
     ap.add_argument("--model", default=None)
-    ap.add_argument("--style", default="shonen_90s", help="|".join(STYLE_PRESETS))
+    ap.add_argument("--style", default="shonen_90s", help="auto 或 |".join(STYLE_PRESETS))
     ap.add_argument("--color", action="store_true")
     ap.add_argument("--max-pages", type=int, default=None)
     ap.add_argument("--out", default=None, help="指定輸出 slug")

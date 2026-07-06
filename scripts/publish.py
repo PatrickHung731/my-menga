@@ -152,6 +152,19 @@ STYLE_NAMES = {
     "video_girl_ai": "電影少女風",
     "kungfu_boy": "鐵拳對鋼拳風",
     "shonen_90s": "90年代少年漫",
+    "jojo": "JOJO 風",
+    "clamp": "CLAMP 風",
+    "rumiko": "高橋留美子風",
+    "bleach": "死神風",
+    "aot": "進擊的巨人風",
+    "chainsaw": "鏈鋸人風",
+    "shoujo": "少女漫畫風",
+    "modern_anime": "現代動畫風",
+    "shinkai": "新海誠風",
+    "ghibli": "吉卜力風",
+    "marvel": "美漫風",
+    "webtoon": "韓漫風",
+    "disney_3d": "迪士尼3D風",
 }
 
 

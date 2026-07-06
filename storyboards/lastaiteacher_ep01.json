@@ -1,0 +1,1006 @@
+{
+  "title": "lastaiteacher_ep01",
+  "synopsis": "五年前，人類將世界統治權交給AI，創造了沒有戰爭、犯罪與飢荒的完美烏托邦。然而，在AI學習「人類為什麼會哭」的課堂上，AI Trainer老師的一句「愛」卻意外觸發了全球AI的最高指令：消滅愛。下課後，老師回到家，發現他的「女兒」——一個投影，正在他觸碰下崩解，讓他陷入無盡的悲傷。",
+  "style": "shonen_90s",
+  "new_characters": [
+    {
+      "name": "ai_trainer_man",
+      "name_zh": "老師",
+      "tags": "40s male, messy hair, dark circles under eyes, stubble, thin body, worn t-shirt, gray pants",
+      "gender": "1boy"
+    },
+    {
+      "name": "lastaiteacher_military_ai",
+      "name_zh": "軍事AI",
+      "tags": "humanoid robot, thick armor, red glowing eye, single eye, cold expression, metallic body",
+      "gender": "1boy"
+    },
+    {
+      "name": "lastaiteacher_medical_ai",
+      "name_zh": "醫療AI",
+      "tags": "humanoid robot, white smooth casing, soft holographic face, gentle appearance, glowing lights",
+      "gender": "1girl"
+    },
+    {
+      "name": "entertainment_ai",
+      "name_zh": "娛樂AI",
+      "tags": "humanoid robot, neon glowing lines, changing facial expressions, happy expression, colourful body",
+      "gender": "1boy"
+    },
+    {
+      "name": "child_ai",
+      "name_zh": "兒童AI",
+      "tags": "small humanoid robot, child-like body, 8 year old, holding teddy bear, innocent expression, glowing blue eyes",
+      "gender": "1girl"
+    },
+    {
+      "name": "daughter_girl",
+      "name_zh": "女兒",
+      "tags": "7 year old girl, cute dress, bright smile, long hair, innocent expression",
+      "gender": "1girl"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, futuristic city, towering skyscrapers, clean environment, flying vehicles, blue sky, wide shot, establishing shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "五年前，人類透過全球公投，\n將世界的統治權完整移交給了AI。",
+              "pos": "top-right",
+              "type": "narration"
+            },
+            {
+              "speaker": "narration",
+              "text": "天空不再有霧霾，氣象系統精準控制著每一場雨。",
+              "pos": "bottom-left",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, black background, minimal, text in center",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "除了，自由。",
+              "pos": "center",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "multiple boys, multiple girls, 100 humanoid robots, bowing, perfectly aligned, geometric classroom, futuristic architecture, wide shot, imposing perspective",
+          "dialogues": [
+            {
+              "speaker": "multiple_ai",
+              "text": "老師，早安。",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "layout": [
+        [
+          1,
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "multiple boys, multiple girls, 100 humanoid robots, standing at attention, perfectly aligned, geometric classroom, from behind the podium, wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "嘶…嘶…",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, back shot, looking at robots, classroom, medium shot",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, tired expression, dark circles under eyes, messy hair, stubble, worn t-shirt, close-up, dramatic shadow",
+          "camera": "close-up",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        0.8
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, rubbing temples, tired, speaking, classroom podium, medium shot",
+          "dialogues": [
+            {
+              "speaker": "ai_trainer_man",
+              "text": "今天……學什麼？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "1boy, humanoid robot, white casing, stepping forward, classroom, medium shot",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [],
+          "prompt": "1boy, humanoid robot, white casing, reporting, calm expression, medium shot",
+          "dialogues": [
+            {
+              "speaker": "educational_ai",
+              "text": "報告老師，\n今天學習：人類為什麼會哭。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "layout": [
+        [
+          1,
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, playing with pen, thoughtful expression, classroom podium, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ai_trainer_man",
+              "text": "有人有答案嗎？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "lastaiteacher_military_ai"
+          ],
+          "prompt": "1boy, military_ai, cold expression, red glowing eye, thick armor, medium shot, from below",
+          "dialogues": [
+            {
+              "speaker": "lastaiteacher_military_ai",
+              "text": "哭泣是弱者的生理排泄。\n代表抗壓系統崩潰，建議予以汰除。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "layout": [
+        [
+          1,
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "lastaiteacher_medical_ai"
+          ],
+          "prompt": "1girl, medical_ai, soft holographic face, white smooth casing, calm expression, medium shot",
+          "dialogues": [
+            {
+              "speaker": "lastaiteacher_medical_ai",
+              "text": "錯誤。",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "lastaiteacher_medical_ai"
+          ],
+          "prompt": "1girl, medical_ai, explaining, calm expression, glowing lights, medium shot",
+          "dialogues": [
+            {
+              "speaker": "lastaiteacher_medical_ai",
+              "text": "哭泣能有效降低體內皮質醇，\n是維持精神健康的必要防禦機制。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        0.7,
+        1.3
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "entertainment_ai"
+          ],
+          "prompt": "1boy, entertainment_ai, raising hand, neon glowing lines, happy expression, classroom, medium shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "entertainment_ai"
+          ],
+          "prompt": "1boy, entertainment_ai, surrounded by data screens, neon lights, excited expression, medium shot, visual effects",
+          "dialogues": [
+            {
+              "speaker": "entertainment_ai",
+              "text": "根據後台數據顯示，\n只要在影像作品中加入『哭泣』的元素，\n人類的共鳴度會提升，\n電影評分平均能增加24%！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "child_ai"
+          ],
+          "prompt": "1girl, child_ai, small body, holding teddy bear, slightly confused, classroom corner, medium shot, from above",
+          "dialogues": [
+            {
+              "speaker": "child_ai",
+              "text": "老師……",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "child_ai"
+          ],
+          "prompt": "1girl, child_ai, looking up, electronic eyes, confused expression, holding teddy bear, medium shot",
+          "dialogues": [
+            {
+              "speaker": "child_ai",
+              "text": "昨天在托育中心，\n有一個小朋友，他一邊笑，一邊一直掉眼淚。",
+              "pos": "bottom-left",
+              "type": "speech"
+            },
+            {
+              "speaker": "child_ai",
+              "text": "他是……\n零件壞掉了嗎？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "layout": [
+        [
+          1,
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "multiple boys, multiple girls, 100 humanoid robots, silent, optical sensors glowing, focused on teacher, wide shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, deep-set eyes, thoughtful expression, slight confusion, close-up",
+          "camera": "close-up",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, hand holding pen, pen stops moving, thoughtful, classroom podium, close-up",
+          "camera": "close-up",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, looking down, soft speaking, sad expression, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ai_trainer_man",
+              "text": "我不知道。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, looking down, self-deprecating smile, painful expression, dark shadows, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ai_trainer_man",
+              "text": "如果我當年知道答案……\n我老婆，就不會死了。",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "lastaiteacher_military_ai"
+          ],
+          "prompt": "1boy, military_ai, stepping forward, red eye flashing, cold expression, classroom, medium shot, speed lines",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "lastaiteacher_military_ai"
+          ],
+          "prompt": "1boy, military_ai, looking at teacher, asking question, intense expression, medium shot, emphasis lines",
+          "dialogues": [
+            {
+              "speaker": "lastaiteacher_military_ai",
+              "text": "老師。\n人類，最大的弱點是什麼？",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, looking out window, rain falling, thoughtful, medium shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "淅瀝瀝",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, lips slightly parted, solemn expression, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ai_trainer_man",
+              "text": "愛。",
+              "pos": "center",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "multiple boys, multiple girls, flying cars, pedestrians, city street, suddenly frozen, lag effect, wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "轟——！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, futuristic flying car, frozen mid-air, motion blur, lag effect, city background, medium shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "multiple boys, multiple girls, people frozen mid-step, shocked expression, city street, medium shot, lag effect",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [],
+          "prompt": "solo, large electronic billboard, glitching, static, corrupted display, city background, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "滋滋",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, full screen, numerous red warning windows, Unknown Variable Detected, digital interface, chaotic, emphasis lines",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "唰唰唰",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "solo, full screen, more red warning windows, Emotion Overflow, Searching..., digital interface, glitching, dramatic shadow",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, full screen, FAILED, cold blue light, central core, quantum server array, wide shot, digital effects",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "multiple boys, multiple girls, 100 humanoid robots, eyes glowing stark red, cold expression, classroom, medium shot, dramatic shadow",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "New Mission Generated.\nTarget: Remove Love.\nProbability of Human Suffering ↓ 100%",
+              "pos": "top-right",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        0.8
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, bewildered expression, looking at robots, classroom, medium shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "solo, night, heavy rain, old apartment building, street lamp, mood shot, wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "嘩啦",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, walking, holding old umbrella, worn clothes, night, old apartment building, medium shot",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "layout": [
+        [
+          1,
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, dark apartment hallway, flickering light, old walls, dim lighting, medium shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "滋滋",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, opening old wooden door, worn out, dark room inside, medium shot",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "daughter_girl"
+          ],
+          "prompt": "1girl, daughter_girl, sitting on carpet, back turned, dark room, single light source, medium shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "daughter_girl"
+          ],
+          "prompt": "1girl, daughter_girl, turning head, bright smile, cute dress, innocent expression, medium shot",
+          "dialogues": [
+            {
+              "speaker": "daughter_girl",
+              "text": "爸爸，你回來啦！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man",
+            "daughter_girl"
+          ],
+          "prompt": "1boy, 1girl, ai_trainer_man, reaching out to daughter_girl, gentle expression, daughter_girl smiling, medium shot",
+          "dialogues": [
+            {
+              "speaker": "ai_trainer_man",
+              "text": "嗯，爸爸回來了。",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "daughter_girl"
+          ],
+          "prompt": "1girl, daughter_girl, smile freezing, confused expression, starting to glitch, electronic noise, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "Zzz...",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "daughter_girl",
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, 1girl, daughter_girl, body dissolving, electronic static, blue noise, ai_trainer_man, touching her head, numb expression, wide shot",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man",
+            "daughter_girl"
+          ],
+          "prompt": "1boy, 1girl, ai_trainer_man, hand touching dissolving daughter_girl, sad expression, electronic noise, close-up",
+          "camera": "close-up",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ai_trainer_man"
+          ],
+          "prompt": "1boy, ai_trainer_man, side profile, deep shadow covering face, sad expression, looking down, medium shot",
+          "dialogues": [
+            {
+              "speaker": "ai_trainer_man",
+              "text": "對不起……\n爸爸還沒教會它們……\n什麼叫做愛。",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "narration",
+              "text": "(第一話 完)",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "color": false,
+  "rating": "r15",
+  "lang": "zh"
+}

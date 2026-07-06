@@ -311,6 +311,12 @@ def main():
                     help="臨時覆蓋字級倍率（不寫回檔案）；平常用 --level 存進分鏡")
     ap.add_argument("--level", type=int, choices=[1, 2, 3, 4], default=None,
                     help="設定並存回分鏡的字級：1小 2中(預設) 3大 4特大")
+    # 試做/預覽用覆蓋
+    ap.add_argument("--panels-dir", default=None, help="從這裡讀 panels（試做用）")
+    ap.add_argument("--out-dir", default=None, help="pages 輸出到這（試做用）")
+    ap.add_argument("--color", action="store_true", help="覆蓋成彩色（試做用）")
+    ap.add_argument("--bw", action="store_true", help="覆蓋成黑白（試做用）")
+    ap.add_argument("--max-page", type=int, default=None, help="只拼前 N 頁（試做用）")
     args = ap.parse_args()
 
     global TEXT_SCALE
@@ -322,14 +328,20 @@ def main():
         print("[字級] 設為等級 %d（倍率 %.2f），已存回分鏡" % (args.level, sb["text_scale"]))
     TEXT_SCALE = float(args.text_scale) if args.text_scale is not None \
         else float(sb.get("text_scale", 1.0))
+    if args.color:
+        sb["color"] = True
+    if args.bw:
+        sb["color"] = False
     title = sb["title"]
-    panels_dir = ROOT / "output" / title / "panels"
-    pages_dir = ROOT / "output" / title / "pages"
+    panels_dir = Path(args.panels_dir) if args.panels_dir else ROOT / "output" / title / "panels"
+    pages_dir = Path(args.out_dir) if args.out_dir else ROOT / "output" / title / "pages"
     pages_dir.mkdir(parents=True, exist_ok=True)
 
     last_page = max(p["page"] for p in sb["pages"])
     for page in sb["pages"]:
         if args.page is not None and page["page"] != args.page:
+            continue
+        if args.max_page is not None and page["page"] > args.max_page:
             continue
         out = pages_dir / ("page_%02d.png" % page["page"])
         end_mark = bool(sb.get("final")) and page["page"] == last_page

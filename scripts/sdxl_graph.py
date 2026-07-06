@@ -24,6 +24,7 @@ RATING_NEG = {
 
 # 風格預設（storyboard 的 "style" 欄位）
 STYLE_PRESETS = {
+    # ── 經典少年漫畫 ──
     "shonen_90s":    "1990s (style), retro artstyle",                          # 通用九零年代少年漫
     "dragon_ball":   "toriyama akira (style), 1980s (style), retro artstyle",  # 七龍珠
     "one_piece":     "oda eiichirou (style)",                                  # 海賊王
@@ -32,8 +33,25 @@ STYLE_PRESETS = {
     "naruto":        "kishimoto masashi (style)",                              # 火影忍者
     "video_girl_ai": "katsura masakazu (style), 1990s (style), retro artstyle",  # 電影少女
     "kungfu_boy":    "1980s (style), retro artstyle, martial arts",            # 鐵拳對鋼拳
-    "modern_anime":  "",
+    # ── 經典作家風 ──
+    "jojo":          "araki hirohiko (style), jojo no kimyou na bouken, muscular, dramatic pose",  # JOJO
+    "clamp":         "clamp (style), detailed lineart, flowing clothes, elegant",  # CLAMP
+    "rumiko":        "takahashi rumiko (style), 1980s (style), retro artstyle",  # 高橋留美子
+    "bleach":        "kubo tite (style), sharp lines, high contrast",          # BLEACH 死神
+    "aot":           "isayama hajime (style), dark atmosphere, intense shading",  # 進擊的巨人
+    "chainsaw":      "fujimoto tatsuki (style), dark, dynamic angle",          # 鏈鋸人
+    # ── 少女漫畫 ──
+    "shoujo":        "shoujo manga, sparkle, flower background, large eyes, screentone",  # 少女漫畫
+    # ── 現代動畫/電影風 ──
+    "modern_anime":  "",                                                       # 現代動畫（Animagine 預設）
+    "shinkai":       "shinkai makoto (style), lens flare, sunlight, detailed sky, scenery",  # 新海誠
+    "ghibli":        "ghibli (style), studio ghibli, miyazaki hayao, watercolor, soft lighting",  # 吉卜力
+    # ── 海外風格 ──
+    "marvel":        "marvel comics, american comics (style), muscular, realistic, dark colors, cel shading",  # 美漫
+    "webtoon":       "korean webtoon, clean lines, soft shading, modern",      # 韓漫 Webtoon
+    "disney_3d":     "3d, pixar (style), cartoon, cute, colorful, soft lighting, round features",  # 迪士尼/皮克斯
 }
+
 
 # SDXL 友善解析度（w, h）
 SDXL_SIZES = [(1024, 1024), (896, 1152), (832, 1216), (768, 1344),

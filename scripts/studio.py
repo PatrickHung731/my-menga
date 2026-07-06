@@ -25,7 +25,9 @@ if not sys.stdout.isatty():
         pass
 
 STYLE_MENU = [
-    ("dragon_ball", "七龍珍風（鳥山明）"),
+    ("auto", "⭐ AI 自動判斷最適合的風格"),
+    # ── 經典少年漫畫 ──
+    ("dragon_ball", "七龍珠風（鳥山明）"),
     ("one_piece", "海賊王風（尾田）"),
     ("yuyu_hakusho", "幽遊白書風（富堅）"),
     ("slam_dunk", "灌籃高手風（井上）"),
@@ -33,7 +35,23 @@ STYLE_MENU = [
     ("video_girl_ai", "電影少女風（桂正和）"),
     ("kungfu_boy", "鐵拳對鋼拳風（80年代格鬥）"),
     ("shonen_90s", "通用九零少年漫"),
+    # ── 經典作家風 ──
+    ("jojo", "JOJO 風（荒木飛呂彥）"),
+    ("clamp", "CLAMP 風（魔法騎士/庫洛牌）"),
+    ("rumiko", "高橋留美子風（乱馬/犬夜叉）"),
+    ("bleach", "死神風（久保帶人）"),
+    ("aot", "進擊的巨人風（諫山創）"),
+    ("chainsaw", "鏈鋸人風（藤本樹）"),
+    # ── 少女漫畫 ──
+    ("shoujo", "少女漫畫風（花朵/閃亮）"),
+    # ── 現代動畫/電影風 ──
     ("modern_anime", "現代動畫風"),
+    ("shinkai", "新海誠風（你的名字）"),
+    ("ghibli", "吉卜力風（宮崎駿）"),
+    # ── 海外風格 ──
+    ("marvel", "美漫風（Marvel/DC）"),
+    ("webtoon", "韓漫 Webtoon 風"),
+    ("disney_3d", "迪士尼/皮克斯 3D 風"),
 ]
 
 
@@ -207,13 +225,14 @@ def do_preview():
     run("story2manga.py", txt, "--storyboard-only")
 
 
-def choose_style():
+def choose_style(allow_auto=True):
     print("選畫風：")
-    for i, (k, zh) in enumerate(STYLE_MENU, 1):
+    valid_menu = STYLE_MENU if allow_auto else [m for m in STYLE_MENU if m[0] != "auto"]
+    for i, (k, zh) in enumerate(valid_menu, 1):
         print("  [%d] %s (%s)" % (i, zh, k))
-    c = ask("> ", "8")
+    c = ask("> ", "9" if allow_auto else "8")
     try:
-        return STYLE_MENU[int(c) - 1][0]
+        return valid_menu[int(c) - 1][0]
     except Exception:
         return "shonen_90s"
 
@@ -288,20 +307,35 @@ def do_restyle():
         print("[!] 沒有進行中的連載。")
         return
     print("目前畫風：%s。要改成哪一種？" % s["style"])
-    new_style = choose_style()
-    if new_style == s["style"]:
-        if ask("跟現在一樣，確定要重畫嗎？(y/N) > ").lower() != "y":
-            return
+    new_style = choose_style(allow_auto=False)
     col = ask("彩色還黑白？(Enter=不變 / c=彩色 / b=黑白) > ").lower()
-    print("⚠ 這會【重畫整部連載所有頁】＋重繪角色，會跑好一陣子（每格約20~40秒）。")
-    if ask("確定改整部畫風？(y/N) > ").lower() != "y":
-        print("已取消。")
-        return
+    col_flag = "--color" if col == "c" else ("--bw" if col == "b" else None)
+
+    # 先試做幾頁預覽（非破壞，完全不動現有內容）
+    n = ask("先試做幾頁看看？(Enter=2 頁 / 0=不試、直接全部重畫) > ", "2")
+    try:
+        npv = int(n)
+    except ValueError:
+        npv = 2
+    if npv > 0:
+        pcmd = ["preview_style.py", "--series", s["name"], "--style", new_style, "--pages", str(npv)]
+        if col_flag:
+            pcmd.append(col_flag)
+        if not run(*pcmd):
+            return
+        print("↑ 樣張資料夾已開啟，看看喜不喜歡（現有內容一格都沒動）。")
+        if ask("要用這個畫風把整部重畫嗎？(y=全部重畫 / 其他=先不要) > ").lower() != "y":
+            print("好，先不動。想換別的畫風再選一次 [s]；試做樣張留在 output\\_previews\\。")
+            return
+    else:
+        print("⚠ 這會【重畫整部連載所有頁】＋重繪角色，會跑好一陣子（每格約20~40秒）。")
+        if ask("確定改整部畫風？(y/N) > ").lower() != "y":
+            print("已取消。")
+            return
+
     cmd = ["restyle.py", "--series", s["name"], "--style", new_style]
-    if col == "c":
-        cmd.append("--color")
-    elif col == "b":
-        cmd.append("--bw")
+    if col_flag:
+        cmd.append(col_flag)
     if run(*cmd):
         _offer_deploy()
 

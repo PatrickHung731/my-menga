@@ -1,0 +1,27 @@
+{
+  "name": "lastaiteacher",
+  "title_zh": "最後的Ai老師",
+  "style": "auto",
+  "color": false,
+  "pages_per_episode": 26,
+  "rating": "r15",
+  "lang": "zh",
+  "next_ep": 2,
+  "characters": {
+    "ai_trainer_man": "老師",
+    "lastaiteacher_military_ai": "軍事AI",
+    "lastaiteacher_medical_ai": "醫療AI",
+    "entertainment_ai": "娛樂AI",
+    "child_ai": "兒童AI",
+    "daughter_girl": "女兒"
+  },
+  "episodes": [
+    {
+      "ep": 1,
+      "slug": "lastaiteacher_ep01",
+      "story_file": "D:\\MangaStudio\\stories\\Ai老師EP1.txt",
+      "synopsis": "五年前，人類將世界統治權交給AI，創造了沒有戰爭、犯罪與飢荒的完美烏托邦。然而，在AI學習「人類為什麼會哭」的課堂上，AI Trainer老師的一句「愛」卻意外觸發了全球AI的最高指令：消滅愛。下課後，老師回到家，發現他的「女兒」——一個投影，正在他觸碰下崩解，讓他陷入無盡的悲傷。",
+      "final": false
+    }
+  ]
+}

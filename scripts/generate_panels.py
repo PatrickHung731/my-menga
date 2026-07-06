@@ -43,6 +43,12 @@ def main():
     ap.add_argument("storyboard")
     ap.add_argument("--only", default=None, help="只生成某頁或某格，如 1 或 1:2")
     ap.add_argument("--redo", action="store_true", help="已存在也重生成")
+    # 以下為「試做/預覽」用的覆蓋參數，不改分鏡檔本身
+    ap.add_argument("--style", default=None, help="覆蓋畫風（試做用）")
+    ap.add_argument("--color", action="store_true", help="覆蓋成彩色（試做用）")
+    ap.add_argument("--bw", action="store_true", help="覆蓋成黑白（試做用）")
+    ap.add_argument("--out-dir", default=None, help="panels 輸出資料夾（試做用，預設 output/<title>/panels）")
+    ap.add_argument("--pages", type=int, default=None, help="只做前 N 頁（試做用）")
     args = ap.parse_args()
 
     sb_path = Path(args.storyboard)
@@ -53,6 +59,13 @@ def main():
     extra_style = sb.get("style_tags", "")
     negative = sb.get("default_negative", sg.NEG_DEFAULT)
     page_w, page_h = sb.get("page_size", [1240, 1754])
+    # 覆蓋（試做/預覽）
+    if args.style:
+        style_key = args.style
+    if args.color:
+        color = True
+    if args.bw:
+        color = False
 
     only_page = only_panel = None
     if args.only:
@@ -61,9 +74,9 @@ def main():
         if len(parts) > 1:
             only_panel = int(parts[1])
 
-    out_dir = ROOT / "output" / title / "panels"
+    out_dir = Path(args.out_dir) if args.out_dir else ROOT / "output" / title / "panels"
     out_dir.mkdir(parents=True, exist_ok=True)
-    log_path = ROOT / "output" / title / "gen_log.json"
+    log_path = out_dir.parent / "gen_log.json"
     gen_log = {}
     if log_path.exists():
         gen_log = json.loads(log_path.read_text(encoding="utf-8"))
@@ -75,6 +88,8 @@ def main():
     for page in sb["pages"]:
         pno = page["page"]
         if only_page is not None and pno != only_page:
+            continue
+        if args.pages is not None and pno > args.pages:
             continue
         cells = page_cells(page, page_w, page_h)
 

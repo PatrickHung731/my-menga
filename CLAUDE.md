@@ -46,6 +46,7 @@ compose_pages.py 有 `TEXT_SCALE` 倍率：storyboard 的 `text_scale`（1.0=中
 
 ## 改畫風 / 改角色（做完發現不喜歡）
 
+- **先試做（省時間關鍵）**：`scripts\preview_style.py --series X --style S [--bw|--color] [--pages 2]` → 在 `output\_previews\<series>_<style>[_bw]\` 生前 N 頁樣張，**完全不動現有內容**（generate_panels/compose_pages 已加 --style/--color/--bw/--out-dir/--panels-dir/--pages/--max-page 覆蓋參數，用現有角色臉+覆蓋畫風）。工作台 [s] 已內建：先問試做幾頁→開樣張→確認才全做。
 - **改整部畫風**：`scripts\restyle.py --series X --style NEW [--color|--bw] [--no-refs]`（=工作台 [s]）。改 series+所有分鏡的 style/color → 用**同一顆 seed** 重繪角色參考(保臉) → 重畫所有話全部分格 → 重生封面。故事/分鏡/對白不動，只換「畫」。很重（每格 20~40s）。
 - **改單一角色**：`scripts\change_character.py --series X --char ID [--tags "新外觀"] [--gender] [--seed] [--bw]`（=工作台 [c]）。重繪該角色設定圖（給 tags=換外觀設計、不給=只換臉重抽 seed）→ 掃所有分鏡找出「characters 含該 id」的分格**只重畫那些**（其他格不動）→ 重拼受影響的話 →(若是封面主角)重生封面。
 - 兩者做完都會問要不要順便 deploy（線上更新）。
