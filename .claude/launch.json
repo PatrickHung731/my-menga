@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docs",
+      "runtimeExecutable": "D:\\LocalAI\\ComfyUI\\venv\\Scripts\\python.exe",
+      "runtimeArgs": ["-m", "http.server", "8080", "-d", "D:\\MangaStudio\\docs"],
+      "port": 8080
+    }
+  ]
+}

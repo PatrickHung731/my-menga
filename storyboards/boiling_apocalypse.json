@@ -1,0 +1,582 @@
+{
+  "title": "boiling_apocalypse",
+  "new_characters": [
+    {
+      "name": "ayu",
+      "tags": "black hair, short hair, black eyes, white tank top, towel around neck, athletic build, adult",
+      "gender": "1boy"
+    },
+    {
+      "name": "laowang",
+      "tags": "balding, gray hair, red face, drunk, middle-aged, overweight",
+      "gender": "1boy"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, close-up, steam, boiling broth, oysters, braised intestines, street food, dramatic lighting",
+          "camera": "close-up",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, stirring pot, focused expression, half-body shot, street food stall, night",
+          "camera": "mid-shot",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "laowang"
+          ],
+          "prompt": "1boy, eating noodles, drunk, red face, street food stall, night",
+          "camera": "mid-shot",
+          "dialogues": []
+        },
+        {
+          "id": 4,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, looking up, thoughtful expression, close-up, dark sky",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ayu",
+              "text": "不管世界怎麼變，\n肚子餓了就是要吃熱騰騰的東西。",
+              "pos": "top-right",
+              "type": "narration"
+            },
+            {
+              "speaker": "ayu",
+              "text": "這是我家傳三代的大鐵鍋教我的真理。",
+              "pos": "bottom-left",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        1.0,
+        0.8
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, night sky, shattering glass effect, spatial rift, dark red lightning, taipei 101, wide shot, dramatic lighting, impact",
+          "camera": "wide shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "solo, street lights, shop signs, phone screens, exploding sparks, mid-shot, darkness",
+          "camera": "mid-shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "滋！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [],
+          "prompt": "solo, single red glowing raindrop, falling, stainless steel counter, sizzling effect, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "嘶—",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [],
+          "prompt": "multiple people, running, screaming, red rain, city street, wide shot, panic, motion blur",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "random_person_a",
+              "text": "好燙！這雨…好燙啊啊啊！",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "laowang"
+          ],
+          "prompt": "1boy, laowang, red eyes, veins popping, skin crawling effect, close-up, dramatic shadow",
+          "camera": "close-up",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "laowang"
+          ],
+          "prompt": "1boy, laowang, mutated, sharp teeth, mouth wide open, growling, dark red eyes, mid-shot, monster transformation",
+          "camera": "mid-shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "吼—",
+              "pos": "bottom-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "laowang",
+            "ayu"
+          ],
+          "prompt": "2boys, mutated laowang, attacking, snarling, table flipped, ayu, surprised, wide shot, speed lines, impact",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "laowang",
+              "text": "吼——！！！",
+              "pos": "top-right",
+              "type": "shout"
+            },
+            {
+              "speaker": "sfx",
+              "text": "翻！",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ayu",
+            "laowang"
+          ],
+          "prompt": "2boys, ayu, swinging large metal ladle, attacking stance, mutated laowang, wide eyes, action shot, speed lines",
+          "camera": "mid-shot",
+          "dialogues": [
+            {
+              "speaker": "ayu",
+              "text": "靠！沒付錢還想砸攤啊！",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ayu",
+            "laowang"
+          ],
+          "prompt": "2boys, ayu's arm, mutated laowang's sharp claw, scratching, close-up, impact lines, blood",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "鏗！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "ayu",
+            "laowang"
+          ],
+          "prompt": "2boys, ayu's blood droplet, mutated laowang's black blood droplet, falling, close-up, motion blur",
+          "camera": "close-up",
+          "dialogues": []
+        },
+        {
+          "id": 4,
+          "characters": [],
+          "prompt": "solo, two blood droplets, falling into boiling broth, large iron pot, close-up, slow motion effect",
+          "camera": "close-up",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.5,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "solo, large iron pot, noodles, boiling, erupting golden light pillar, pushing away red rain, wide shot, dramatic lighting, energy blast",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "轟隆！",
+              "pos": "top",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, ayu, shocked expression, covered in golden light, close-up, ancient bell effect",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "mysterious_voice",
+              "text": "【檢測到純粹之食意。狂暴靈氣已匯入。】",
+              "pos": "top-right",
+              "type": "narration"
+            },
+            {
+              "speaker": "mysterious_voice",
+              "text": "【上古遺寶「吞天造化鼎」解封。\n傳承開啟：饕餮食修之道。】",
+              "pos": "bottom-left",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        0.9,
+        1.3
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, ayu's hands, metal ladle, golden glowing runes, close-up, magical transformation",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ayu",
+              "text": "這鍋子…成精了？",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "ayu",
+              "text": "食修…意思是，吃就能變強？",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "laowang"
+          ],
+          "prompt": "1boy, mutated laowang, lunging, faster speed, mid-shot, speed lines, aggressive",
+          "camera": "mid-shot",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "ayu",
+            "laowang"
+          ],
+          "prompt": "2boys, ayu, determined expression, wielding glowing ladle, mutated laowang, attacking, wide shot, action pose, dynamic angle",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "ayu",
+              "text": "功法第一式：【去骨熬湯】！",
+              "pos": "top-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "ayu",
+            "laowang"
+          ],
+          "prompt": "2boys, ayu, ladle hitting mutated laowang's chest, dark red energy core, being extracted, close-up, energy effect, suction effect",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "咻！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0,
+        1.1,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, ayu, flicking wrist, dark red energy core, throwing into boiling pot, close-up",
+          "camera": "close-up",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "solo, dark red energy core, dissolving, turning golden, boiling broth, large iron pot, close-up, purification effect, glowing",
+          "camera": "close-up",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [],
+          "prompt": "solo, golden aroma waves, spreading out, steam, delicious food, wide shot, magical effect, city street",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "香！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [],
+          "prompt": "multiple people, city street, red rain, monsters in distance, golden glowing dome, protecting food stall, overhead shot, wide shot",
+          "camera": "wide shot",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0,
+        1.5
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "laowang",
+            "ayu"
+          ],
+          "prompt": "2boys, laowang, unconscious, human form, survivors, crawling towards food stall, mid-shot, desperate expressions, red rain",
+          "camera": "mid-shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, ayu, wiping hands with cloth, calm expression, glowing noodles in pot, food stall, mid-shot",
+          "camera": "mid-shot",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, ayu, confident smile, cunning expression, close-up, golden light reflection",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ayu",
+              "text": "各位，雖然看起來像是世界末日了……",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "ayu"
+          ],
+          "prompt": "1boy, ayu, serving glowing noodles, holding bowl, wide shot, determined expression, street food stall, golden aura, action pose",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "ayu",
+              "text": "但阿與的麵線攤，今晚照常營業。",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "ayu",
+              "text": "一碗可用變異怪物肉塊換，童叟無欺。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "shonen_90s",
+  "color": false
+}

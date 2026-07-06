@@ -1,0 +1,27 @@
+{
+  "name": "catwarrionen",
+  "title_zh": "貓戰士英文版",
+  "style": "one_piece",
+  "color": true,
+  "pages_per_episode": 20,
+  "rating": "safe",
+  "lang": "en",
+  "next_ep": 2,
+  "characters": {
+    "catwarrionen_bluestar": "Bluestar",
+    "catwarrionen_spottedleaf": "Spottedleaf",
+    "catwarrionen_rusty": "Rusty",
+    "catwarrionen_smudge": "Smudge",
+    "catwarrionen_graypaw": "Graypaw",
+    "catwarrionen_lionheart": "Lionheart"
+  },
+  "episodes": [
+    {
+      "ep": 1,
+      "slug": "catwarrionen_ep01",
+      "story_file": "D:\\MangaStudio\\stories\\Cat warrior-part1.txt",
+      "synopsis": "The ThunderClan, a group of wild cats, faces trouble, and their medicine cat, Spottedleaf, receives a prophecy of a special fire that will save them. Meanwhile, a curious pet cat named Rusty longs for the wild and defies his friend Smudge's warnings to venture into the forest, where he encounters a wild cat named Graypaw.",
+      "final": false
+    }
+  ]
+}

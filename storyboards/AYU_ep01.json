@@ -1,0 +1,656 @@
+{
+  "title": "AYU_ep01",
+  "synopsis": "夜深人靜，街角的「阿與麵線攤」依舊燈火通明。粗獷的老闆阿與在熱氣蒸騰的攤位前，用他獨特的風格招呼著客人，而一位面生的大學生，正怯生生地觀察著他。",
+  "new_characters": [
+    {
+      "name": "AYU_ayu",
+      "name_zh": "阿與",
+      "tags": "messy short hair, round black glasses, sweating, muscular build, old yellow t-shirt, rough face",
+      "gender": "1boy"
+    },
+    {
+      "name": "university_student",
+      "name_zh": "大學生",
+      "tags": "young man, thick backpack, nervous expression, timid, black hair, black eyes, average build",
+      "gender": "1boy"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        1.0,
+        0.8
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "wide shot, night, street corner, old noodle stand, city lights, neon signs, steam rising, empty chairs, establishing shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "夜深了\n城市的霓虹逐漸轉暗",
+              "pos": "top-left",
+              "type": "narration"
+            },
+            {
+              "speaker": "narration",
+              "text": "但在這不起眼的街角\n一盞昏黃的燈泡\n依舊倔強地亮著",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, sweating, messy short hair, round black glasses, focused expression, steam, close-up, from below",
+          "camera": "close-up",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, strong hands, stirring noodles, giant stainless steel pot, steam, mid shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "這裡是\n「阿與麵線攤」",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [],
+          "prompt": "solo, red plastic chair, pulled out, street corner background, night, low angle",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "空氣中瀰漫著\n柴魚高湯的鮮甜",
+              "pos": "top",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, back shot, old yellow t-shirt, rough face, yelling, noodle stand background, steam, speed lines",
+          "dialogues": [
+            {
+              "speaker": "AYU_ayu",
+              "text": "吵死了！\n要吃自己找位子坐！",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "solo, a person pulling a red plastic chair, street corner, night",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "常客拉開紅色塑膠椅\n大聲喊道",
+              "pos": "bottom-left",
+              "type": "narration"
+            },
+            {
+              "speaker": "unseen_customer",
+              "text": "老闆\n一碗綜合，大腸多一點\n不要香菜！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, strong hands, thick calluses, scissors cutting intestines, ladle, noodle pot, steam, close-up, motion blur",
+          "dialogues": [
+            {
+              "speaker": "AYU_ayu",
+              "text": "沒看到老子在忙嗎！",
+              "pos": "top-right",
+              "type": "shout"
+            },
+            {
+              "speaker": "sfx",
+              "text": "喀嚓喀嚓",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, throwing ladle, noodle stand background, steam, speed lines",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, hand reaching into orange ice bucket, grabbing beer bottle, close-up",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, biting open beer bottle cap, focused expression, close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "啵",
+              "pos": "top-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, chugging beer, head tilted back, sweat, strong neck, beer foam, close-up, dramatic lighting",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "咕嚕",
+              "pos": "top-right",
+              "type": "sfx"
+            },
+            {
+              "speaker": "sfx",
+              "text": "咕嚕",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        0.9,
+        1.1
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, wiping mouth with hand, satisfied expression, beer foam on face, noodle stand background, mid shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "哈！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "wide shot, noodle stand, night, a young man with a heavy backpack standing hesitantly at the entrance, establishing shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "對阿與來說\n這酒\n才是他撐過夜晚的燃料",
+              "pos": "top-left",
+              "type": "narration"
+            },
+            {
+              "speaker": "narration",
+              "text": "這時\n攤子前來了一個面生的大學生",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "university_student"
+          ],
+          "prompt": "1boy, nervous expression, timid, heavy backpack, looking at noodle stand, close-up",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, squinting eyes, looking through foggy glasses, rough face, serious expression, close-up, dramatic shadow",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "阿與瞇起眼睛\n打量著眼前的年輕人",
+              "pos": "top-left",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, slamming empty beer bottle on table, powerful motion, close-up, impact lines",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "砰！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "university_student"
+          ],
+          "prompt": "1boy, shrinking back, scared expression, wide eyes, close-up, speed lines",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "大學生嚇得\n縮了縮脖子",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, turning his back, rough silhouette, noodle stand background, mid shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, strong hands, ladle scooping noodles into a large ceramic bowl, steam, close-up",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, hands adding oysters, intestines, garlic paste and chili sauce generously into a noodle bowl, close-up, delicious looking food",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, forcefully placing a steaming noodle bowl on a stainless steel table, soup splashing slightly, impact lines, wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "碰！",
+              "pos": "top-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "university_student"
+          ],
+          "prompt": "1boy, startled, confused expression, looking at the noodle bowl, close-up",
+          "dialogues": [
+            {
+              "speaker": "university_student",
+              "text": "老、老闆……",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "university_student"
+          ],
+          "prompt": "1boy, stammering, looking up at ayu (off-panel), nervous, close-up",
+          "dialogues": [
+            {
+              "speaker": "university_student",
+              "text": "我還沒點……",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, ignoring the student, opening another beer bottle, casual, back of student visible",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, walking towards the student, holding beer bottle, confident stride, from behind",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "AYU_ayu",
+            "university_student"
+          ],
+          "prompt": "1boy, 1boy, ayu towering over the university student, holding beer bottle, student looking nervous, low angle, dramatic shadow",
+          "camera": "low angle",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, rough face, wide unrestrained smile, beer foam on lips, close-up, dramatic lighting",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, pointing with beer bottle at the noodle bowl, confident expression, water drops on bottle, mid shot",
+          "dialogues": [
+            {
+              "speaker": "AYU_ayu",
+              "text": "看你餓得像隻\n沒斷奶的小貓",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "AYU_ayu",
+              "text": "別廢話了\n拿起筷子，趁熱吃！",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, raising beer bottle, toasting, night sky background, city lights, wide shot, emphasis lines",
+          "dialogues": [
+            {
+              "speaker": "AYU_ayu",
+              "text": "來吧！",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "university_student"
+          ],
+          "prompt": "1boy, swallowing, picking up chopsticks nervously, looking at noodle bowl, close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "咕",
+              "pos": "top-left",
+              "type": "sfx"
+            },
+            {
+              "speaker": "sfx",
+              "text": "吞",
+              "pos": "top-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "university_student"
+          ],
+          "prompt": "1boy, eating first bite of noodles, wide eyes, expression of surprise and awe, close-up, steam, delicious looking food",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "瞬間，濃郁的柴魚高湯\n與辛辣蒜泥完美交織",
+              "pos": "bottom-right",
+              "type": "narration"
+            },
+            {
+              "speaker": "narration",
+              "text": "極度細膩、深邃且溫柔的美味",
+              "pos": "top-left",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "AYU_ayu"
+          ],
+          "prompt": "1boy, back shot, stirring noodles, giant pot, steam, night, street corner, long shot, hook for next chapter",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "夜還很長\n這個街角的煙火氣\n才正要開始。",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "video_girl_ai",
+  "color": false,
+  "rating": "r15"
+}

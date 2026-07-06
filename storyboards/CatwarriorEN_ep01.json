@@ -1,0 +1,636 @@
+{
+  "title": "CatwarriorEN_ep01",
+  "synopsis": "深入黑暗森林，雷族正面臨困境。醫貓斑葉從星族得到預言：一隻特別的火會拯救貓族。與此同時，夢想野外狩獵的家貓小橘獨自進入森林，卻遭到野貓攻擊。",
+  "new_characters": [
+    {
+      "name": "CatwarriorEN_bluestar",
+      "name_zh": "藍星",
+      "tags": "silver fur, gray fur, blue eyes, scar, large build, cat ears, cat tail, animal ears, slit pupils, fangs",
+      "gender": "1girl"
+    },
+    {
+      "name": "CatwarriorEN_spottedleaf",
+      "name_zh": "斑葉",
+      "tags": "tortoiseshell fur, small build, beautiful, cat ears, cat tail, animal ears, slit pupils, fangs",
+      "gender": "1girl"
+    },
+    {
+      "name": "CatwarriorEN_rusty",
+      "name_zh": "小橘",
+      "tags": "orange fur, ginger fur, handsome, pet cat, cat ears, cat tail, animal ears, slit pupils, fangs",
+      "gender": "1boy"
+    },
+    {
+      "name": "CatwarriorEN_smudge",
+      "name_zh": "小煤",
+      "tags": "black fur, white fur, plump, amber eyes, pet cat, cat ears, cat tail, animal ears, slit pupils, fangs",
+      "gender": "1boy"
+    },
+    {
+      "name": "CatwarriorEN_graypaw",
+      "name_zh": "灰爪",
+      "tags": "fluffy fur, gray fur, wide face, yellow eyes, kitten, cat ears, cat tail, animal ears, slit pupils, fangs",
+      "gender": "1boy"
+    },
+    {
+      "name": "CatwarriorEN_lionheart",
+      "name_zh": "獅心",
+      "tags": "golden fur, tabby fur, huge build, green eyes, magnificent, cat ears, cat tail, animal ears, slit pupils, fangs",
+      "gender": "1boy"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.5,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_bluestar",
+            "CatwarriorEN_spottedleaf"
+          ],
+          "prompt": "multiple boys, multiple girls, cat ears, cat tail, animal ears, slit pupils, fangs, a group of wild cats, dark forest, worried expressions, bluestar and spottedleaf in foreground, wide shot, dramatic shadow, dense trees",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "在黑暗森林深處…\n雷族正陷入困境。",
+              "pos": "top-left",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, bluestar, worried expression, looking at spottedleaf, forest background, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_bluestar",
+              "text": "星族… 真的會指引我們嗎？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "CatwarriorEN_spottedleaf"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, spottedleaf, looking at the starry sky, glowing eyes, magical light, receiving a vision, forest background, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_spottedleaf",
+              "text": "…一團烈火… 將會拯救我們！",
+              "pos": "bottom-left",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, sitting in a cozy garden, looking towards a dark forest, sunny day, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "與此同時，森林不遠處…",
+              "pos": "top-left",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, dreaming expression, wistful, looking into the distance, garden background, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_rusty",
+              "text": "雖然家裡很舒服…\n但野外… 一定更有趣吧！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, dreaming of hunting, pouncing on a mouse, forest setting, thought bubble, motion blur",
+          "camera": "close-up",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_smudge",
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "2boys, cat ears, cat tail, animal ears, slit pupils, fangs, smudge and rusty talking, smudge looking worried, rusty curious, garden fence, night",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_smudge",
+              "text": "森林裡很危險的！\n有很多野貓！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_smudge"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, smudge, frightened expression, emphasizing warning, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_smudge",
+              "text": "那些野貓\n會攻擊你！",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, determined expression, looking over the fence towards the dark forest, night, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_rusty",
+              "text": "但我很好奇…\n我想去看看！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, jumping over a garden fence, silhouette, moon in the background, night, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "唰！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, cautiously entering a dark forest, alert posture, dark shadows, night, wide shot",
+          "camera": "wide shot",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, successfully pouncing on a mouse, proud expression, forest floor, night, close-up, speed lines",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "嘶！",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.5,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_rusty",
+            "CatwarriorEN_graypaw"
+          ],
+          "prompt": "2boys, cat ears, cat tail, animal ears, slit pupils, fangs, graypaw lunging at rusty from behind bushes, rusty surprised, dramatic action, night forest, impact lines",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "吼！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, startled expression, dodging an attack, surprised, close-up, speed lines",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_rusty",
+              "text": "什麼？！",
+              "pos": "bottom-left",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.5,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_rusty",
+            "CatwarriorEN_graypaw"
+          ],
+          "prompt": "2boys, cat ears, cat tail, animal ears, slit pupils, fangs, rusty pinning graypaw down, fierce expression, graypaw struggling, forest floor, impact lines",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "砰！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, graypaw, surprised and pinned, struggling, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_graypaw",
+              "text": "你… 你是誰？！",
+              "pos": "bottom-left",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, looking at graypaw, realization, surprised, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_rusty",
+              "text": "…你… 你是隻小貓？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_rusty",
+            "CatwarriorEN_graypaw"
+          ],
+          "prompt": "2boys, cat ears, cat tail, animal ears, slit pupils, fangs, rusty and graypaw talking, less aggressive, forest background, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_graypaw",
+              "text": "我叫灰爪！\n是野貓！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty, curious expression, listening, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_rusty",
+              "text": "你為什麼\n攻擊我？",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "CatwarriorEN_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, graypaw, slightly embarrassed, explaining, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_graypaw",
+              "text": "我以為…\n你是入侵者！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "row_weights": [
+        1.5,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_bluestar",
+            "CatwarriorEN_lionheart",
+            "CatwarriorEN_rusty",
+            "CatwarriorEN_graypaw"
+          ],
+          "prompt": "2boys, 1girl, cat ears, cat tail, animal ears, slit pupils, fangs, bluestar and lionheart emerging from dark shadows, imposing figures, rusty and graypaw turning to look, night forest, wide shot, dramatic shadow",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "沙沙…",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, bluestar, serious and observing expression, looking at rusty and graypaw, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_bluestar",
+              "text": "這裡發生了什麼事？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_rusty",
+            "CatwarriorEN_graypaw",
+            "CatwarriorEN_bluestar",
+            "CatwarriorEN_lionheart"
+          ],
+          "prompt": "2boys, 1girl, cat ears, cat tail, animal ears, slit pupils, fangs, rusty looking defiant, graypaw looking wary, bluestar and lionheart in background, night forest, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_lionheart",
+              "text": "這隻家貓…\n竟然懂得打鬥？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "CatwarriorEN_lionheart"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, lionheart, surprised expression, impressed, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_lionheart",
+              "text": "而且…\n還制服了灰爪！",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "CatwarriorEN_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, bluestar, thoughtful expression, looking intently at rusty, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "CatwarriorEN_bluestar",
+              "text": "這隻小貓…\n很不尋常。",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "layout": [
+        [
+          1
+        ]
+      ],
+      "row_weights": [
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "CatwarriorEN_bluestar",
+            "CatwarriorEN_lionheart",
+            "CatwarriorEN_rusty",
+            "CatwarriorEN_graypaw"
+          ],
+          "prompt": "2boys, 1girl, cat ears, cat tail, animal ears, slit pupils, fangs, bluestar, lionheart, rusty, graypaw, tense atmosphere, bluestar looking directly at rusty, night forest, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "家貓小橘的命運，將如何改變？",
+              "pos": "top",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "one_piece",
+  "color": false,
+  "rating": "safe"
+}

@@ -1,0 +1,212 @@
+{
+  "title": "test_ep1",
+  "new_characters": [],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, on school rooftop, looking at city, dusk, wide shot, calm expression",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "放學後的天台，\n是我獨自的秘密基地。",
+              "pos": "top-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, turning head, surprised expression, mysterious shadow, speed lines",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "唰",
+              "pos": "top-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "fukurou",
+            "ryne"
+          ],
+          "prompt": "2boys, fukurou attacking, ryne dodging, high speed, school rooftop, speed lines, motion blur",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "什麼人？！",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "fukurou",
+            "ryne"
+          ],
+          "prompt": "2boys, fukurou attacking, ryne defending, pushed back, surprised expression, school rooftop, impact, speed lines",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "好快！\n完全看不清動作！",
+              "pos": "bottom-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        1.1,
+        0.8
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, cornered, against fence, desperate expression, dramatic shadow, from below, school rooftop",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "鏗",
+              "pos": "bottom-left",
+              "type": "sfx"
+            },
+            {
+              "speaker": "ryne",
+              "text": "糟糕…被逼到絕路了！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, full body, lightning, power awakening, glowing eyes, determined expression, emphasis lines, dramatic shadow, school rooftop",
+          "camera": "full shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "滋啦！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "fukurou",
+            "ryne"
+          ],
+          "prompt": "2boys, ryne attacking, lightning, fukurou dodging, surprised expression, speed lines, impact, school rooftop",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "fukurou",
+              "text": "喔？！",
+              "pos": "top-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "fukurou"
+          ],
+          "prompt": "1boy, fukurou retreating, looking back, school rooftop, motion blur",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "fukurou",
+              "text": "雷之血脈果然覺醒了……\n組織很快會來找你。",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, looking at hands, lightning effects, shocked expression, excited expression, close-up, school rooftop",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "這、這是我的力量……？",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "ryne",
+              "text": "既可怕……又讓人興奮！",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "yuyu_hakusho",
+  "color": false
+}

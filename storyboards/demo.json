@@ -1,0 +1,50 @@
+{
+  "title": "demo",
+  "style": "shonen_90s",
+  "color": false,
+  "page_size": [1240, 1754],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [[1], [2, 3], [4]],
+      "row_weights": [1.1, 1.0, 0.9],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "1boy, spiky black hair, martial arts uniform, standing on rocky cliff, wind, cape fluttering, dramatic sky, clouds, wide shot, from below",
+          "dialogues": [
+            {"type": "narration", "text": "傳說中的武鬥大會，十年一度——", "pos": "top-right"},
+            {"speaker": "hero", "text": "終於等到這一天了。", "pos": "bottom-left"}
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "1boy, spiky black hair, martial arts uniform, clenching fist, close-up of fist, determined expression, speed lines",
+          "camera": "close-up",
+          "dialogues": [
+            {"speaker": "hero", "text": "就是現在！", "pos": "top-right", "type": "shout"}
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [],
+          "prompt": "1boy, muscular, bald, villain, evil grin, arms crossed, dark aura, upper body",
+          "dialogues": [
+            {"speaker": "villain", "text": "小鬼，你來晚了十年。", "pos": "top-left"}
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [],
+          "prompt": "two boys fighting, dynamic action, punch, impact, motion blur, speed lines, debris flying, dutch angle",
+          "dialogues": [
+            {"type": "sfx", "text": "轟", "pos": "center"},
+            {"speaker": "hero", "text": "喝啊啊！", "pos": "top-right", "type": "shout"}
+          ]
+        }
+      ]
+    }
+  ]
+}

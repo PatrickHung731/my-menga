@@ -1,0 +1,183 @@
+{
+  "title": "test_ep1_ollama",
+  "new_characters": [
+    {
+      "name": "fukurou",
+      "tags": "white_hair long_hair mask trench_coat black_coat adult mysterious athletic",
+      "gender": "1girl"
+    },
+    {
+      "name": "ryne",
+      "tags": "black_spiky_hair black_hair black_eyes gakuran school_uniform muscular_build teen",
+      "gender": "1boy"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "fukurou",
+            "ryne"
+          ],
+          "prompt": "2boys 1girl, facing each other, fighting stance, school rooftop, chain-link fence, dusk, wide shot, speed lines",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "fukurou",
+              "text": "雷之血脈果然覺醒了...\n組織很快會來找你。",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "ryne",
+              "text": "轟！",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, falling backwards, electric aura, school rooftop, chain-link fence, dusk, close-up, dramatic shadow",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "我...我到底在幹什麼...\n電...電在我手上...",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "ryne",
+            "fukurou"
+          ],
+          "prompt": "1boy 1girl, facing each other, lightning attack, school rooftop, chain-link fence, dusk, wide shot, motion blur",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "轟！！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, electric aura, school rooftop, chain-link fence, dusk, close-up, dramatic shadow",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "這...這是什麼感覺...\n我...我做到了...",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, lightning crackling, school rooftop, chain-link fence, dusk, wide shot, speed lines",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "這股力量...\n是為了什麼而存在...",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "ryne"
+          ],
+          "prompt": "1boy, electric aura, school rooftop, chain-link fence, dusk, close-up, dramatic shadow",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "ryne",
+              "text": "我...我還會再戰...\n就算是...就算是...",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "ryne",
+            "fukurou"
+          ],
+          "prompt": "1boy 1girl, facing each other, electric aura, school rooftop, chain-link fence, dusk, wide shot, motion blur",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "fukurou",
+              "text": "組織很快會來找你。\n準備好了嗎，雷之子？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "yuyu_hakusho",
+  "color": false
+}

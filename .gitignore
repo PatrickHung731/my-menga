@@ -1,0 +1,14 @@
+# 生成的大檔（本機保留，不推 GitHub）——網站用的 webp 在 docs/images 已足夠
+output/
+_tmp/
+
+# Python / 暫存
+__pycache__/
+*.pyc
+*.log
+
+# 環境
+.venv/
+venv/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,219 @@
+{
+  "title": "raiden_ep01",
+  "synopsis": "高中生雷恩在放學後於學校天台遭神秘男子梟襲擊。面對步步進逼的強敵，雷恩體內隱藏的雷電之力首次覺醒，釋放出驚人力量反擊。梟撤退時留下了關於「雷之血脈」的警告，讓雷恩對自己的命運感到困惑。",
+  "new_characters": [
+    {
+      "name": "raiden_ryne",
+      "name_zh": "雷恩",
+      "tags": "black hair, spiky hair, black uniform, teenage, lean build",
+      "gender": "1boy"
+    },
+    {
+      "name": "raiden_fukurou",
+      "name_zh": "梟",
+      "tags": "white hair, black coat, mask, adult, athletic build",
+      "gender": "1boy"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, standing alone, looking out, wide shot, school rooftop, metal fence, sunset, empty",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "今天的天空\n很漂亮啊…",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "raiden_fukurou"
+          ],
+          "prompt": "1boy, appearing suddenly, blurred, from behind, close-up, motion blur, dramatic shadow",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "唰！",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, startled, turning around, surprised expression, medium shot, speed lines, school rooftop",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "誰！？",
+              "pos": "top-left",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "raiden_ryne",
+            "raiden_fukurou"
+          ],
+          "prompt": "2boys, one attacking, one blocking, forced back, intense struggle, wide shot, school rooftop, metal fence, speed lines",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "唔！好快…\n這傢伙是誰？",
+              "pos": "bottom-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "raiden_fukurou",
+              "text": "…找到你了，\n雷之血脈。",
+              "pos": "top-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        0.9,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, full body, surrounded by lightning, dynamic pose, shouting, close-up, dramatic lighting, electricity, speed lines, impact",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "少囉嗦！！",
+              "pos": "top-right",
+              "type": "shout"
+            },
+            {
+              "speaker": "sfx",
+              "text": "滋滋滋！",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "raiden_fukurou"
+          ],
+          "prompt": "1boy, surprised expression, taking a hit, retreating quickly, medium shot, motion blur, debris, dramatic shadow",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "raiden_fukurou",
+              "text": "雷之血脈\n果然覺醒了…",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "raiden_fukurou",
+              "text": "組織很快會\n來找你。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, looking at hands, glowing with electricity, conflicted expression, close-up, dramatic lighting, electricity",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "這…這就是\n我的力量嗎？",
+              "pos": "top-left",
+              "type": "speech"
+            },
+            {
+              "speaker": "sfx",
+              "text": "劈啪",
+              "pos": "bottom-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, determined expression, looking into distance, medium shot, school rooftop, fading light, emphasis lines",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "組織…？\n等著瞧吧！",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "yuyu_hakusho",
+  "color": false
+}

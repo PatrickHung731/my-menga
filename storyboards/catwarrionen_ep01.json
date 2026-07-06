@@ -1,0 +1,1670 @@
+{
+  "title": "catwarrionen_ep01",
+  "synopsis": "The ThunderClan, a group of wild cats, faces trouble, and their medicine cat, Spottedleaf, receives a prophecy of a special fire that will save them. Meanwhile, a curious pet cat named Rusty longs for the wild and defies his friend Smudge's warnings to venture into the forest, where he encounters a wild cat named Graypaw.",
+  "new_characters": [
+    {
+      "name": "catwarrionen_bluestar",
+      "name_zh": "Bluestar",
+      "tags": "silver gray fur, blue eyes, scar across shoulder, large build, cat ears, cat tail, animal ears, slit pupils, fangs, feline",
+      "gender": "1girl"
+    },
+    {
+      "name": "catwarrionen_spottedleaf",
+      "name_zh": "Spottedleaf",
+      "tags": "tortoiseshell fur, small build, beautiful, cat ears, cat tail, animal ears, slit pupils, fangs, feline",
+      "gender": "1girl"
+    },
+    {
+      "name": "catwarrionen_rusty",
+      "name_zh": "Rusty",
+      "tags": "orange fur, ginger fur, handsome, cat ears, cat tail, animal ears, slit pupils, fangs, feline",
+      "gender": "1boy"
+    },
+    {
+      "name": "catwarrionen_smudge",
+      "name_zh": "Smudge",
+      "tags": "black and white fur, plump, amber eyes, pet collar, cat ears, cat tail, animal ears, slit pupils, fangs, feline",
+      "gender": "1boy"
+    },
+    {
+      "name": "catwarrionen_graypaw",
+      "name_zh": "Graypaw",
+      "tags": "gray fur, fluffy fur, wide face, yellow eyes, kitten, cat ears, cat tail, animal ears, slit pupils, fangs, feline",
+      "gender": "1boy"
+    },
+    {
+      "name": "catwarrionen_lionheart",
+      "name_zh": "Lionheart",
+      "tags": "golden tabby fur, green eyes, huge build, magnificent, cat ears, cat tail, animal ears, slit pupils, fangs, feline",
+      "gender": "1boy"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "wide shot, dark forest, ominous atmosphere, ancient trees, dramatic shadow",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "Deep within the forest's heart...",
+              "pos": "top-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, sitting, worried expression, gathered cats in background, wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "Our clan faces grave danger.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_spottedleaf"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, tortoiseshell fur, looking up, serious expression, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_spottedleaf",
+              "text": "The stars are restless.",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_bluestar",
+            "catwarrionen_spottedleaf"
+          ],
+          "prompt": "1girl, 1girl, cat ears, cat tail, animal ears, slit pupils, fangs, bluestar looking at spottedleaf, spottedleaf looking at sky, concerned expressions, dramatic shadow",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "Is there any hope, Spottedleaf?",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_spottedleaf"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, tortoiseshell fur, closing eyes, deep concentration, glowing light from above, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_spottedleaf",
+              "text": "I must seek guidance from StarClan.",
+              "pos": "top",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "multiple boys, multiple girls, cat ears, cat tail, animal ears, slit pupils, fangs, worried expressions, looking at spottedleaf, dark forest background",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, anxious expression, looking at spottedleaf, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "May StarClan bless us.",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_spottedleaf"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, tortoiseshell fur, eyes wide open, glowing sky reflection in eyes, magical aura, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_spottedleaf",
+              "text": "A message! From the stars!",
+              "pos": "top",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        0.9,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "starry night sky, glowing constellations, magical light effects, mysterious message appearing, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "The message was clear...",
+              "pos": "top-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_spottedleaf"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, tortoiseshell fur, mouth open, urgent expression, glowing effect, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_spottedleaf",
+              "text": "Only fire can save our Clan!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, shocked expression, wide eyes, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "Fire...?",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_spottedleaf",
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, 1girl, cat ears, cat tail, animal ears, slit pupils, fangs, spottedleaf looking urgent, bluestar looking confused, forest background, wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_spottedleaf",
+              "text": "Fire will save ThunderClan!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "dark forest, distant light, mysterious atmosphere, wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "Who could this fire be?",
+              "pos": "top-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "transition panel, bright garden, green grass, sunny day, fence, wide shot",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, sitting casually, looking bored, garden background, birdbath, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "Not far away...",
+              "pos": "top-left",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, stretching, yawning, pampered cat, garden background",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Another peaceful day...",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "empty garden, lush green, well-maintained, sunny, wide shot",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, looking towards a distant forest, longing expression, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "But something is missing.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, dreaming, fantasy panel, hunting a mouse in a wild forest, motion blur",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "I dream of the wild...",
+              "pos": "bottom-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, pacing by the garden fence, restless, forest visible beyond fence, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "This safe life... it's not enough.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "night falling, silhouettes of trees, garden fence, mysterious atmosphere",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_smudge"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, black and white fur, plump, climbing over fence, arriving, friendly expression",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_smudge",
+              "text": "Rusty! What are you doing?",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_smudge"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty looking surprised, smudge looking concerned, garden at dusk",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Smudge! Just thinking.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_smudge"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, black and white fur, plump, worried expression, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_smudge",
+              "text": "You're always eyeing that forest.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, defiant expression, looking at forest, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "It calls to me.",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_smudge"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, black and white fur, plump, gesturing wildly, fear on face, garden background, wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_smudge",
+              "text": "It's full of wild cats! Scary ones!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, curious expression, looking intrigued, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Wild cats, you say?",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_smudge"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, black and white fur, plump, pleading expression, trying to convince rusty, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_smudge",
+              "text": "Stay home, Rusty! It's dangerous!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, determined expression, turning towards fence, garden background",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "I have to see for myself.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_smudge"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, black and white fur, plump, dejected expression, looking down, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_smudge",
+              "text": "Oh, Rusty...",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, jumping gracefully over a wooden fence, moonlight, wide shot, motion blur",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Wish me luck, Smudge!",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "dark forest edge, tall trees, moonlight filtering through leaves, mysterious atmosphere, wide shot",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "Into the unknown...",
+              "pos": "top-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, cautiously sniffing the air, alert expression, forest undergrowth",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "What's that smell?",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, moving silently through tall grass, focused eyes, moonlight on fur, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "So many new scents.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, crouched low, focused gaze, hunting posture, close-up on eyes",
+          "camera": "close-up",
+          "dialogues": []
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [],
+          "prompt": "small field mouse, scurrying through leaves, forest floor, close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "SCURRY",
+              "pos": "bottom-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, pouncing action, blurred motion, leaves flying, speed lines",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Got you!",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [],
+          "prompt": "mouse escaping, disappearing into undergrowth, wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "SWISH",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, frustrated expression, looking after escaped mouse, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Almost!",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, looking around, alert, forest background",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "This is harder than I thought.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "shadow creeping from behind a bush, ominous, close-up on shadow",
+          "dialogues": []
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, suddenly startled, ears perked, wide eyes, forest background, speed lines",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "CRACK!",
+              "pos": "bottom-left",
+              "type": "sfx"
+            },
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Who's there?!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, pouncing aggressively, feral expression, motion blur, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "Intruder!",
+              "pos": "top-right",
+              "type": "shout"
+            },
+            {
+              "speaker": "sfx",
+              "text": "POUNCE!",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty startled, graypaw attacking, claws out, dust flying, speed lines, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "CLASH!",
+              "pos": "top",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, startled but reacting defensively, fighting stance, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Hey! Get off me!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, aggressive expression, snarling, attacking, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "This is our territory!",
+              "pos": "bottom-left",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, chaotic fight, fur flying, claws extended, forest background, speed lines, dramatic shadow",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "SCRATCH! GROWL!",
+              "pos": "bottom-right",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, eyes narrowed, determined fighting expression, counter-attacking, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "I can fight back!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty leaping, graypaw surprised, mid-air combat, speed lines",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "WHOOSH!",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, surprised expression, losing balance, from below angle, close-up",
+          "camera": "from below",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "Gah!",
+              "pos": "bottom-left",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty pinning graypaw down, graypaw struggling beneath, forest floor, impact lines, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "THUD!",
+              "pos": "bottom-right",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, panting, triumphant but surprised expression, looking down at defeated foe, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "I... I did it!",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, defeated expression, pinned to the ground, looking up in shock, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "A housecat? Beat me?",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty looking surprised, graypaw looking stunned, close-up on their faces, moment of realization",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "You're... just a kit!",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, releasing graypaw, curious expression, forest background",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Who are you?",
+              "pos": "bottom-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, sitting up, rubbing head, slightly embarrassed, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "I'm Graypaw. A ThunderClan apprentice.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, listening intently, intrigued, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "ThunderClan...",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty explaining, graypaw listening, forest setting, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "I'm Rusty. I live with Twolegs.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, wide-eyed, shocked expression, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "A... a kittypet?!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, slightly defensive but curious, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Yes. But I want to hunt.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, confused expression, looking at rusty, forest background",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "But you fought like a warrior!",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, looking determined, eyes fixed on distant forest, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "I've always dreamed of it.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [],
+          "prompt": "dark shadows looming from behind trees, mysterious figures, from below perspective",
+          "camera": "from below",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "RUSTLE...",
+              "pos": "top-right",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty and graypaw suddenly stop talking, looking alert, ears perked, forest background, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "Did you hear that?",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, stepping out of shadows, powerful presence, stern expression, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "STEP...",
+              "pos": "bottom-left",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_lionheart"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, golden tabby fur, huge build, following bluestar, calm but intimidating, wide shot",
+          "camera": "wide shot",
+          "dialogues": []
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_rusty",
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, rusty and graypaw looking shocked, wide eyes, backing away slightly, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "Bluestar! Lionheart!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, looking at rusty with piercing blue eyes, serious expression, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "Graypaw, who is this?",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_graypaw"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, gray fur, nervous, stammering, looking at bluestar, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_graypaw",
+              "text": "He's... a kittypet!",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_lionheart"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, golden tabby fur, huge build, surprised expression, looking at rusty, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_lionheart",
+              "text": "A kittypet? He fought Graypaw?",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_bluestar",
+            "catwarrionen_lionheart"
+          ],
+          "prompt": "1girl, 1boy, cat ears, cat tail, animal ears, slit pupils, fangs, bluestar looking thoughtful, lionheart looking amazed, surprised expressions, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "He handled himself well...",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "layout": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, thoughtful expression, looking intently at rusty, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "Such spirit for a soft house cat.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_lionheart"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, golden tabby fur, huge build, impressed expression, nodding slightly, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_lionheart",
+              "text": "Indeed. He has fire.",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, standing tall, confident but slightly overwhelmed, facing bluestar and lionheart, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "I am not soft!",
+              "pos": "top-right",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, eyes widening slightly, a hint of surprise and recognition, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "Fire...",
+              "pos": "bottom-right",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, thoughtful, looking at rusty with deep consideration, forest background, wide shot",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_bluestar",
+              "text": "Could this be StarClan's sign?",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "catwarrionen_rusty"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, orange fur, looking confused but intrigued, listening to bluestar, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_rusty",
+              "text": "Sign? What sign?",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "catwarrionen_lionheart"
+          ],
+          "prompt": "1boy, cat ears, cat tail, animal ears, slit pupils, fangs, golden tabby fur, huge build, looking at bluestar, a knowing glance, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "catwarrionen_lionheart",
+              "text": "He has a strong heart.",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "catwarrionen_bluestar"
+          ],
+          "prompt": "1girl, cat ears, cat tail, animal ears, slit pupils, fangs, silver gray fur, enigmatic smile, looking directly at the viewer, dramatic shadow, hook for next chapter",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "narration",
+              "text": "Next: The Call of the Wild!",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "one_piece",
+  "color": true,
+  "rating": "safe",
+  "lang": "en"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "catwarrior",
+  "title_zh": "貓戰士",
+  "style": "shonen_90s",
+  "color": false,
+  "pages_per_episode": 10,
+  "rating": "safe",
+  "next_ep": 2,
+  "characters": {
+    "bluestar": "藍星",
+    "spottedleaf": "斑葉",
+    "rusty": "火星",
+    "smudge": "煙灰",
+    "graypaw": "灰爪",
+    "lionheart": "獅心"
+  },
+  "episodes": [
+    {
+      "ep": 1,
+      "slug": "catwarrior_ep01",
+      "story_file": "D:\\MangaStudio\\stories\\Cat warrior-part1.txt",
+      "synopsis": "雷族面臨困境，醫藥貓斑葉從星族獲得預言，一場「火」將拯救貓族。與此同時，家貓火星渴望野外生活，不顧朋友煙灰的警告，隻身闖入森林，卻遭遇一場突如其來的戰鬥。",
+      "final": false
+    }
+  ]
+}

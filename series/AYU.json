@@ -1,0 +1,22 @@
+{
+  "name": "AYU",
+  "title_zh": "阿與的美味麵線",
+  "style": "video_girl_ai",
+  "color": false,
+  "pages_per_episode": 10,
+  "rating": "r15",
+  "next_ep": 2,
+  "characters": {
+    "AYU_ayu": "阿與",
+    "university_student": "大學生"
+  },
+  "episodes": [
+    {
+      "ep": 1,
+      "slug": "AYU_ep01",
+      "story_file": "D:\\MangaStudio\\阿與劇本\\EP1.txt",
+      "synopsis": "夜深人靜，街角的「阿與麵線攤」依舊燈火通明。粗獷的老闆阿與在熱氣蒸騰的攤位前，用他獨特的風格招呼著客人，而一位面生的大學生，正怯生生地觀察著他。",
+      "final": false
+    }
+  ]
+}

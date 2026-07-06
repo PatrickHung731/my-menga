@@ -1,0 +1,222 @@
+{
+  "title": "raiden_ep03",
+  "synopsis": "面對梟以青梅竹馬小茜為要脅，雷恩終於下定決心，全力解放體內的雷電之力。他以迅雷不及掩耳的速度擊敗梟，卻發現敵人竟是與父親面貌相同的男子。這名神秘男子留下「合格」的訊息後便化作雷光消散，留下雷恩與小茜在夕陽下思考未來的道路。",
+  "new_characters": [],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        1.0,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "raiden_fukurou",
+            "akane",
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, 1girl, multiple boys, fukurou menacing akane, ryne standing, classroom, wide shot, tension, dramatic shadow",
+          "dialogues": [
+            {
+              "speaker": "raiden_fukurou",
+              "text": "要是不想\n她有事…",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "raiden_fukurou",
+              "text": "就把力量\n交出來吧。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, determined expression, close up, lightning emanating, glow, speed lines",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "我不會再逃避了！",
+              "pos": "top-left",
+              "type": "shout"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "raiden_ryne",
+            "raiden_fukurou"
+          ],
+          "prompt": "2boys, ryne charging lightning punch, fukurou surprised, ryne moving at super speed, motion blur, speed lines, classroom background, impact",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "轟！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "akane"
+          ],
+          "prompt": "1girl, akane, shocked expression, wide eyes, classroom, close up, debris, speed lines",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "咻！",
+              "pos": "right",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "characters": [
+            "raiden_fukurou"
+          ],
+          "prompt": "1boy, fukurou flying backwards, shattered window, classroom exterior view, debris, impact",
+          "dialogues": [
+            {
+              "speaker": "sfx",
+              "text": "砰！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          2,
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "row_weights": [
+        1.0,
+        1.1,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "raiden_fukurou"
+          ],
+          "prompt": "1boy, fukurou lying on ground, school yard, dust, slightly injured, looking up, medium shot",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "raiden_fukurou",
+              "text": "咳…咳…",
+              "pos": "bottom-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [
+            "raiden_fukurou"
+          ],
+          "prompt": "1boy, fukurou removing mask, revealing ryne's father face, slight smile, dissolving into lightning, dramatic light, close up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "raiden_fukurou",
+              "text": "你已經合格了，\n孩子。",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "sfx",
+              "text": "唰！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "raiden_ryne",
+            "akane"
+          ],
+          "prompt": "1boy, 1girl, ryne stunned expression, akane running towards ryne, akane hugging ryne, ryne's hand glowing, school yard, medium shot",
+          "camera": "medium shot",
+          "dialogues": [
+            {
+              "speaker": "akane",
+              "text": "雷恩！",
+              "pos": "top-right",
+              "type": "shout"
+            },
+            {
+              "speaker": "akane",
+              "text": "太好了…\n你沒事…",
+              "pos": "bottom-left",
+              "type": "speech"
+            },
+            {
+              "speaker": "raiden_ryne",
+              "text": "不論組織是什麼…",
+              "pos": "top-left",
+              "type": "narration"
+            },
+            {
+              "speaker": "raiden_ryne",
+              "text": "父親的謎題…\n我會自己解開！",
+              "pos": "bottom-right",
+              "type": "narration"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "characters": [
+            "raiden_ryne",
+            "akane"
+          ],
+          "prompt": "1boy, 1girl, ryne and akane walking, side by side, school gate, sunset, wide shot, distant view, peaceful expression",
+          "camera": "wide shot",
+          "dialogues": []
+        }
+      ]
+    }
+  ],
+  "style": "yuyu_hakusho",
+  "color": false,
+  "final": true
+}

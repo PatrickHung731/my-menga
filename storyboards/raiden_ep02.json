@@ -1,0 +1,150 @@
+{
+  "title": "raiden_ep02",
+  "synopsis": "天台之戰後，雷恩體內覺醒的雷電之力讓他徹夜難眠。隔天在學校，青梅竹馬小茜察覺他的異狀，但雷恩無法坦白。放學鐘響，神秘男子梟突然現身教室，再次對雷恩發出威脅，讓局勢再度緊繃。",
+  "new_characters": [
+    {
+      "name": "akane",
+      "name_zh": "小茜",
+      "tags": "ponytail, brown hair, sailor uniform, teenage, lean build",
+      "gender": "1girl"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "row_weights": [
+        1.2,
+        1.0
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, sitting, slumped posture, tired expression, dark circles under eyes, school classroom, wide shot, morning light",
+          "camera": "wide shot",
+          "dialogues": []
+        },
+        {
+          "id": 2,
+          "characters": [
+            "akane",
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, 1girl, girl poking boy's cheek, girl leaning forward, boy looking away, annoyed, upper body, school classroom",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "akane",
+              "text": "雷恩，你怎麼了？",
+              "pos": "top-right",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, male focus, averting gaze, flustered expression, sweatdrop, close-up",
+          "camera": "close-up",
+          "dialogues": [
+            {
+              "speaker": "raiden_ryne",
+              "text": "沒、沒什麼啦…",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "layout": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "row_weights": [
+        1.1,
+        1.0,
+        1.2
+      ],
+      "panels": [
+        {
+          "id": 1,
+          "characters": [
+            "raiden_ryne"
+          ],
+          "prompt": "1boy, male focus, startled expression, flinching, overhead lights exploding, glass shattering, dramatic shadow, speed lines, impact, school classroom",
+          "camera": "mid shot",
+          "dialogues": [
+            {
+              "speaker": null,
+              "text": "轟隆！",
+              "pos": "center",
+              "type": "sfx"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "characters": [],
+          "prompt": "3boys, man with long white hair and black mask and black coat standing in doorway, two men in black suits behind him, menacing, intimidating, destroyed classroom, wide shot, dramatic shadow",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": "raiden_fukurou",
+              "text": "考慮得如何？\n跟我們走，或者——",
+              "pos": "top-right",
+              "type": "speech"
+            },
+            {
+              "speaker": "raiden_fukurou",
+              "text": "讓她替你\n做決定。",
+              "pos": "bottom-left",
+              "type": "speech"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "characters": [
+            "raiden_ryne",
+            "akane"
+          ],
+          "prompt": "1boy, 1girl, boy shielding girl, girl hiding behind boy, boy's hand sparking with electricity, determined expression, wide shot, school classroom, speed lines",
+          "camera": "wide shot",
+          "dialogues": [
+            {
+              "speaker": null,
+              "text": "滋滋！",
+              "pos": "bottom-right",
+              "type": "sfx"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": "yuyu_hakusho",
+  "color": false
+}
