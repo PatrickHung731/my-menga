@@ -32,6 +32,11 @@ FONT_CANDIDATES = {
 }
 _font_cache = {}
 
+# 對白/旁白字級倍率（由 storyboard 的 text_scale 設定，1.0=預設）
+TEXT_SCALE = 1.0
+# 級距對照：1=小 2=中(預設) 3=大 4=特大
+SCALE_LEVELS = {1: 0.85, 2: 1.0, 3: 1.2, 4: 1.4}
+
 
 def get_font(kind, size):
     key = (kind, size)
@@ -137,7 +142,7 @@ def anchor_pos(cell, bw, bh, pos, pad=14):
 
 
 def draw_speech(img, draw, cell, text, pos, shout=False, placed=None):
-    fs = 40 if shout else 32
+    fs = int(round((44 if shout else 36) * TEXT_SCALE))
     font = get_font("dialog", fs)
 
     if is_latin(text):
@@ -195,7 +200,7 @@ def draw_speech(img, draw, cell, text, pos, shout=False, placed=None):
 
 
 def draw_narration(draw, cell, text, pos, placed=None):
-    fs = 26
+    fs = int(round(29 * TEXT_SCALE))
     font = get_font("narration", fs)
     if is_latin(text):
         lines = wrap_words(text, font, 300)   # 英文：整字換行
@@ -302,9 +307,21 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("storyboard")
     ap.add_argument("--page", type=int, default=None)
+    ap.add_argument("--text-scale", type=float, default=None,
+                    help="臨時覆蓋字級倍率（不寫回檔案）；平常用 --level 存進分鏡")
+    ap.add_argument("--level", type=int, choices=[1, 2, 3, 4], default=None,
+                    help="設定並存回分鏡的字級：1小 2中(預設) 3大 4特大")
     args = ap.parse_args()
 
+    global TEXT_SCALE
     sb = json.loads(Path(args.storyboard).read_text(encoding="utf-8"))
+    if args.level is not None:
+        sb["text_scale"] = SCALE_LEVELS[args.level]
+        Path(args.storyboard).write_text(
+            json.dumps(sb, ensure_ascii=False, indent=2), encoding="utf-8")
+        print("[字級] 設為等級 %d（倍率 %.2f），已存回分鏡" % (args.level, sb["text_scale"]))
+    TEXT_SCALE = float(args.text_scale) if args.text_scale is not None \
+        else float(sb.get("text_scale", 1.0))
     title = sb["title"]
     panels_dir = ROOT / "output" / title / "panels"
     pages_dir = ROOT / "output" / title / "pages"

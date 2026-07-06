@@ -306,6 +306,31 @@ def do_restyle():
         _offer_deploy()
 
 
+def do_textsize():
+    s = current_series()
+    if s is None:
+        print("[!] 沒有進行中的連載。")
+        return
+    slug = pick_episode(s, "要調哪一話的字級？")
+    if slug is None:
+        return
+    sb_json = ROOT / "storyboards" / (slug + ".json")
+    if not sb_json.exists():
+        print("[!] 找不到分鏡檔:", sb_json)
+        return
+    print("對白/旁白字級（氣泡會跟著變大，太大會擋到角色，可多試幾次）：")
+    print("  [1] 小    [2] 中(預設)    [3] 大    [4] 特大")
+    lv = ask("選等級 > ", "3")
+    if lv not in ("1", "2", "3", "4"):
+        print("[!] 請輸入 1~4")
+        return
+    if run("compose_pages.py", sb_json, "--level", lv):
+        open_pages(slug)
+        print("字級已套用（只重拼頁，沒重畫圖）。想換大小就再選一次 [t]。")
+        print("氣泡擋到角色的話，用 [4] 改那句的 pos 把氣泡搬走。")
+        _offer_deploy()
+
+
 def do_change_char():
     s = current_series()
     if s is None:
@@ -406,7 +431,7 @@ def main():
  [4] 改對白/搬氣泡 → 重拼頁      [8] 連載狀態/各話提要
  [9] 重新生成封面                 [p] 發布網站 / 推上 GitHub
  [s] 改整部畫風（全部重畫）       [c] 改某個角色（重繪他的分格）
- [0] 離開""")
+ [t] 調對白/旁白字級大小          [0] 離開""")
         c = ask("選功能 > ")
         try:
             if c == "1":
@@ -433,6 +458,8 @@ def main():
                 do_restyle()
             elif c in ("c", "C"):
                 do_change_char()
+            elif c in ("t", "T"):
+                do_textsize()
             elif c == "0":
                 break
         except KeyboardInterrupt:

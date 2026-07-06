@@ -40,6 +40,10 @@ D:\MangaStudio 是 git repo，remote origin = https://github.com/PatrickHung731/
 
 `scripts\make_cover.py`（`--series X` 或 `--all [--redo]`；`--char <id>` 選主角、`--bw` 黑白）→ 主角彩色 key visual（IPAdapter 鎖臉）+ Pillow 疊標題字 → `covers\<name>.png`（3:4, 900x1200）。story2manga 出第一話後**自動生成**（沒有才生）；工作台選項 9 可重生。`scripts\publish.py` 產靜態站到 `docs\`（PNG→WebP、index + read/<slug>.html、共用 docs\reader.js/style.css）；**封面優先用 covers\<name>.png**，沒有才退回第一話第一頁。改封面/出新話後要重跑 publish.py 才更新網站。
 
+## 字級（對白/旁白太小或擋到角色）
+
+compose_pages.py 有 `TEXT_SCALE` 倍率：storyboard 的 `text_scale`（1.0=中）。base 已調大（speech 36 / shout 44 / narration 29）。`compose_pages.py <sb> --level 1~4`（1小0.85 / 2中1.0 / 3大1.2 / 4特大1.4）寫回 text_scale 並重拼；`--text-scale F` 臨時試不寫檔。工作台 [t]。純 CPU 重拼（不重畫圖）。字大→氣泡大→可能擋角色，配 [4] 改 pos 解。
+
 ## 改畫風 / 改角色（做完發現不喜歡）
 
 - **改整部畫風**：`scripts\restyle.py --series X --style NEW [--color|--bw] [--no-refs]`（=工作台 [s]）。改 series+所有分鏡的 style/color → 用**同一顆 seed** 重繪角色參考(保臉) → 重畫所有話全部分格 → 重生封面。故事/分鏡/對白不動，只換「畫」。很重（每格 20~40s）。
