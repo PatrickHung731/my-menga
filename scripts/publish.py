@@ -362,6 +362,8 @@ def main():
     # 2. 確保 docs 子目錄存在
     (DOCS_DIR / "read").mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "images" / "covers").mkdir(parents=True, exist_ok=True)
+    # .nojekyll：純靜態站，叫 GitHub Pages 跳過 Jekyll（更快更穩，避免 deploy 失敗）
+    (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
     # 3. 圖片處理
     print("\n── 圖片處理 ──")
