@@ -340,6 +340,32 @@ def do_restyle():
         _offer_deploy()
 
 
+def do_narrate():
+    s = current_series()
+    if s is None:
+        print("[!] 沒有進行中的連載。")
+        return
+    slug = pick_episode(s, "要把哪一話做成有聲漫畫影片？")
+    if slug is None:
+        return
+    sb_json = ROOT / "storyboards" / (slug + ".json")
+    if not sb_json.exists():
+        print("[!] 找不到分鏡檔:", sb_json)
+        return
+    print("台灣腔配音（男=雲哲 / 女=曉臻 / 旁白=曉雨），角色男女聲自動指派。")
+    pg = ask("先試做前幾頁？(Enter=全部 / 輸入數字=只做前 N 頁) > ")
+    cmd = ["narrate.py", str(sb_json)]
+    if pg.isdigit():
+        cmd += ["--pages", pg]
+    if run(*cmd):
+        vid = ROOT / "output" / slug / (slug + "_narrated.mp4")
+        try:
+            os.startfile(str(vid))
+        except Exception:
+            open_pages(slug)
+        print("有聲漫畫影片好了：output\\%s\\%s_narrated.mp4" % (slug, slug))
+
+
 def do_textsize():
     s = current_series()
     if s is None:
@@ -465,7 +491,8 @@ def main():
  [4] 改對白/搬氣泡 → 重拼頁      [8] 連載狀態/各話提要
  [9] 重新生成封面                 [p] 發布網站 / 推上 GitHub
  [s] 改整部畫風（全部重畫）       [c] 改某個角色（重繪他的分格）
- [t] 調對白/旁白字級大小          [0] 離開""")
+ [t] 調對白/旁白字級大小          [v] 生成有聲漫畫影片（台灣配音）
+ [0] 離開""")
         c = ask("選功能 > ")
         try:
             if c == "1":
@@ -494,6 +521,8 @@ def main():
                 do_change_char()
             elif c in ("t", "T"):
                 do_textsize()
+            elif c in ("v", "V"):
+                do_narrate()
             elif c == "0":
                 break
         except KeyboardInterrupt:

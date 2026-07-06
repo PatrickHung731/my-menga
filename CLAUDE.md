@@ -40,6 +40,10 @@ D:\MangaStudio 是 git repo，remote origin = https://github.com/PatrickHung731/
 
 `scripts\make_cover.py`（`--series X` 或 `--all [--redo]`；`--char <id>` 選主角、`--bw` 黑白）→ 主角彩色 key visual（IPAdapter 鎖臉）+ Pillow 疊標題字 → `covers\<name>.png`（3:4, 900x1200）。story2manga 出第一話後**自動生成**（沒有才生）；工作台選項 9 可重生。`scripts\publish.py` 產靜態站到 `docs\`（PNG→WebP、index + read/<slug>.html、共用 docs\reader.js/style.css）；**封面優先用 covers\<name>.png**，沒有才退回第一話第一頁。改封面/出新話後要重跑 publish.py 才更新網站。
 
+## 有聲漫畫影片（narrate）
+
+`scripts\narrate.py <sb.json> [--pages N] [--out x.mp4]`（=工作台 [v]）→ 乾淨畫格(panels/，無氣泡) + 燒字幕 + 台灣腔配音 → MP4（1080x1440）。配音=**Edge-TTS**（微軟台灣國語，免費/免 GPU/免金鑰，但**需連網**，像 Gemini 那樣走雲端）：男 zh-TW-YunJheNeural、女 zh-TW-HsiaoChenNeural、旁白 zh-TW-HsiaoYuNeural；角色男女聲依 meta.json 性別自動指派。用 ffmpeg（PATH 有，或 imageio-ffmpeg 備援）逐格(image+TTS)成段再 concat。sfx 不配音。輸出 output\<slug>\<slug>_narrated.mp4（在 output/ 內→gitignore 不進 repo）。相依：`edge-tts`（已裝進 ComfyUI venv）。
+
 ## 字級（對白/旁白太小或擋到角色）
 
 compose_pages.py 有 `TEXT_SCALE` 倍率：storyboard 的 `text_scale`（1.0=中）。base 已調大（speech 36 / shout 44 / narration 29）。`compose_pages.py <sb> --level 1~4`（1小0.85 / 2中1.0 / 3大1.2 / 4特大1.4）寫回 text_scale 並重拼；`--text-scale F` 臨時試不寫檔。工作台 [t]。純 CPU 重拼（不重畫圖）。字大→氣泡大→可能擋角色，配 [4] 改 pos 解。
