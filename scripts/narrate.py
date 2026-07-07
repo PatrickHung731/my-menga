@@ -136,6 +136,42 @@ SUBTITLE_SCRIPT_NAME = "subtitle_script.txt"
 F5_VENV_PY = r"D:\LocalAI\f5tts_venv\Scripts\python.exe"
 F5_BATCH = str(Path(__file__).resolve().parent / "f5_tts_batch.py")
 F5_DEFAULT_REF = str(ROOT / "voice" / "patrick_ref_300s.wav")
+
+# 本機 AI 音效（AudioLDM2）跑在自己的 venv
+SFX_VENV_PY = r"D:\LocalAI\sfx_venv\Scripts\python.exe"
+SFX_GEN = str(Path(__file__).resolve().parent / "sfx_gen.py")
+# 中文音效描述 → 英文提示（AudioLDM2 吃英文較準）；子字串比對、可多個
+SFX_KEYWORDS = [
+    ("雨", "gentle rain"), ("水", "water splashing"), ("風", "wind blowing"),
+    ("氣閥", "pneumatic valve hiss"), ("閥", "air hiss"),
+    ("門", "heavy metal door"), ("玻璃", "glass shattering"),
+    ("金屬", "metallic"), ("砸", "heavy impact clang"), ("撞", "heavy collision"),
+    ("碰", "impact clang"), ("鏗", "metal clang"), ("鏘", "metal clang"),
+    ("馬達", "servo motors humming"), ("伺服", "servo whirring"),
+    ("引擎", "engine roaring"), ("齒輪", "mechanical gears turning"),
+    ("警報", "loud emergency alarm siren"), ("警", "alarm"),
+    ("彈指", "sharp finger snap"), ("腳步", "footsteps"), ("走", "footsteps"),
+    ("高跟", "high heel footsteps"), ("爆", "explosion blast"),
+    ("轟", "powerful explosion boom"), ("電", "electric crackle"),
+    ("滋", "electric buzzing crackle"), ("槍", "gunshot"), ("刀", "blade slash"),
+    ("鐘", "bell ringing"), ("鈴", "bell ringing"), ("心跳", "heartbeat"),
+    ("鍵盤", "keyboard typing"), ("嗶", "electronic beep"),
+]
+
+
+def sfx_to_english(descs):
+    """把中文音效描述轉成英文 sound-effect 提示。"""
+    out = []
+    for d in descs:
+        hits = []
+        for zh, en in SFX_KEYWORDS:
+            if zh in d and en not in hits:
+                hits.append(en)
+        if hits:
+            out.append("sound effect of " + ", ".join(hits[:3]) + ", cinematic, high quality")
+        else:
+            out.append("dramatic cinematic impact sound effect")
+    return out
 FONT_BOLD = [r"C:\Windows\Fonts\msjhbd.ttc", r"C:\Windows\Fonts\msjh.ttc"]
 _fc = {}
 
@@ -349,6 +385,55 @@ async def tts(text, voice, path):
     await edge_tts.Communicate(text, voice).save(str(path))
 
 
+def build_panel_segments(durs, sent_start, T, N, fracs):
+    """回傳 [(t0, t1, panel_idx)]：把 N 張畫格依場景敘述長度分配到時間軸。
+    每個場景顯示它自己那段的畫格（畫格是照故事順序生的，所以第 i 段=場景 i）。
+    出錯或無場景時退回平均分配。"""
+    M = len(durs)
+    try:
+        if not fracs or len(fracs) < 2 or N < len(fracs) or M < len(fracs):
+            raise ValueError("fallback")
+        starts = sorted(set(max(0, min(M - 1, round(f * M))) for f in fracs))
+        if starts[0] != 0:
+            starts = [0] + starts
+        ranges = []
+        for i, st in enumerate(starts):
+            en = starts[i + 1] if i + 1 < len(starts) else M
+            if en > st:
+                ranges.append((st, en))
+        K = len(ranges)
+        scene_time = [sum(durs[a:b]) for a, b in ranges]
+        alloc = [max(1, round(N * t / T)) for t in scene_time]
+        # 調整總和 = N（多退少補到時間最長的場景）
+        order = sorted(range(K), key=lambda i: -scene_time[i])
+        d = N - sum(alloc)
+        j = 0
+        while d != 0 and order:
+            i = order[j % K]
+            if d > 0:
+                alloc[i] += 1; d -= 1
+            elif alloc[i] > 1:
+                alloc[i] -= 1; d += 1
+            j += 1
+            if j > 10000:
+                break
+        segs, off = [], 0
+        for (a, b), cnt in zip(ranges, alloc):
+            w0 = sent_start[a]
+            w1 = sent_start[b] if b < M else T
+            pis = list(range(off, min(N, off + cnt))) or [min(N - 1, off)]
+            off += len(pis)
+            sd = (w1 - w0) / len(pis)
+            for k, pi in enumerate(pis):
+                segs.append((w0 + k * sd, w0 + (k + 1) * sd, pi))
+        if segs:
+            segs[-1] = (segs[-1][0], T, segs[-1][2])
+        return segs
+    except Exception:
+        pd = T / N
+        return [(k * pd, (k + 1) * pd, k) for k in range(N)]
+
+
 def synth_f5(sentences, ref_audio, tmp):
     """用 F5-TTS（另一個 venv）批次克隆，回傳每句的 wav 路徑（失敗為 None）。"""
     job = tmp / "f5job.json"
@@ -386,6 +471,10 @@ def main():
                     help="用 script.txt 重新產生字幕稿，會覆蓋既有 subtitle_script.txt")
     ap.add_argument("--out", default=None)
     ap.add_argument("--img-dur", type=float, default=0.0, help="每張圖片最低停留秒數")
+    ap.add_argument("--sfx", dest="sfx", action="store_true", default=True,
+                    help="生成並混入 [音效]（預設開，需 sfx_venv）")
+    ap.add_argument("--no-sfx", dest="sfx", action="store_false",
+                    help="不生成音效")
     args = ap.parse_args()
 
     voice = VOICES.get(args.voice, args.voice)
@@ -473,8 +562,23 @@ def main():
 
     T = sum(durs)
     N = len(panels)
-    panel_dur = T / N
     sent_start = [sum(durs[:i]) for i in range(len(durs))]
+
+    # 畫格對齊場景：每個 [建議場景] 顯示它自己那段的畫格（比平均分配更貼合劇情）
+    try:
+        _scr = get_script(sb)
+        fracs = script_parser.scene_fractions(_scr) if script_parser.is_screenplay(_scr) else [0.0]
+    except Exception:
+        fracs = [0.0]
+    panel_segs = build_panel_segments(durs, sent_start, T, N, fracs)
+    if len(fracs) >= 2:
+        print("[畫面] 依 %d 個場景對齊畫格" % len(fracs))
+
+    def panel_idx_at(t):
+        for a, b, pi in panel_segs:
+            if a - 1e-6 <= t < b + 1e-6:
+                return pi
+        return panel_segs[-1][2] if panel_segs else 0
 
     # 2) 合成整段旁白音軌
     alist = tmp / "alist.txt"
@@ -483,10 +587,52 @@ def main():
     subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(alist),
                     "-c", "copy", str(narration)], capture_output=True)
 
+    # 2b) 本機 AI 生音效並混進旁白（[音效] 在它的時間點播放）
+    if args.sfx:
+        try:
+            sfx_items = script_parser.sfx_with_fraction(get_script(sb))
+        except Exception:
+            sfx_items = []
+        if sfx_items and Path(SFX_VENV_PY).exists():
+            eng = sfx_to_english([x["text"] for x in sfx_items])
+            sdir = tmp / "sfx"; sdir.mkdir(exist_ok=True)
+            (tmp / "sfxjob.json").write_text(json.dumps(
+                {"sfx": eng, "out_dir": str(sdir), "len": 4.0}, ensure_ascii=False),
+                encoding="utf-8")
+            print("[音效] 本機 AI 生成 %d 個音效中（第一次會載模型）..." % len(eng))
+            subprocess.run([SFX_VENV_PY, SFX_GEN, str(tmp / "sfxjob.json")])
+            wavs = []
+            for i, it in enumerate(sfx_items):
+                w = sdir / ("%04d.wav" % i)
+                if w.exists():
+                    wavs.append((w, min(T - 0.5, max(0.0, it["frac"] * T))))
+            if wavs:
+                inputs = ["-i", str(narration)]
+                for w, _ in wavs:
+                    inputs += ["-i", str(w)]
+                parts, mixlabels = [], "[0]"
+                for k, (_, t) in enumerate(wavs):
+                    ms = int(t * 1000)
+                    parts.append("[%d]adelay=%d:all=1,volume=0.55[s%d]" % (k + 1, ms, k))
+                    mixlabels += "[s%d]" % k
+                fc = ";".join(parts) + ";" + mixlabels + \
+                    "amix=inputs=%d:duration=first:normalize=0[out]" % (len(wavs) + 1)
+                mixed = tmp / "narration_sfx.m4a"
+                r = subprocess.run([FFMPEG, "-y"] + inputs + ["-filter_complex", fc,
+                                    "-map", "[out]", "-c:a", "aac", "-b:a", "160k",
+                                    str(mixed)], capture_output=True, text=True)
+                if mixed.exists():
+                    narration = mixed
+                    print("[音效] 已混入 %d 個音效" % len(wavs))
+                else:
+                    print("[音效] 混音失敗，改用純旁白：\n" + (r.stderr or "")[-400:])
+        elif sfx_items:
+            print("[音效] 略過（找不到 sfx_venv，還沒裝音效模型）")
+
     # 3) 聯合時間軸（畫格切換點 ∪ 句子切換點）→ 每段一張已燒字幕的 frame
     bounds = set([0.0, T])
-    for k in range(1, N):
-        bounds.add(round(k * panel_dur, 3))
+    for seg in panel_segs:
+        bounds.add(round(seg[1], 3))
     for st in sent_start[1:]:
         bounds.add(round(st, 3))
     times = sorted(t for t in bounds if 0 <= t <= T)
@@ -504,7 +650,7 @@ def main():
         t0, t1 = times[j], times[j + 1]
         if t1 - t0 < 0.05:
             continue
-        pidx = min(N - 1, int((t0 + 1e-4) / panel_dur))
+        pidx = panel_idx_at(t0)
         sidx = sent_idx_at(t0)
         frame = fit_panel(panels[pidx], color)
         draw_subtitle(frame, sentences[sidx], speakers[sidx])

@@ -115,8 +115,40 @@ def scenes(text):
     return [b["text"] for b in parse(text) if b["kind"] == "scene"]
 
 
+def scene_fractions(text):
+    """回傳每個場景在『要唸的句子序列』中的起始比例（0~1，遞增，開頭含 0.0）。
+    給有聲影片把畫格對齊到場景用。沒有場景標記時回 [0.0]。"""
+    spoken = 0
+    bounds = [0]
+    for b in parse(text):
+        if b["kind"] == "scene":
+            if bounds[-1] != spoken:
+                bounds.append(spoken)
+        elif b["kind"] in ("narration", "dialogue") and b["text"]:
+            spoken += 1
+    if spoken == 0:
+        return [0.0]
+    return [x / spoken for x in sorted(set(bounds))]
+
+
 def sfx_list(text):
     return [b["text"] for b in parse(text) if b["kind"] == "sfx"]
+
+
+def sfx_with_fraction(text):
+    """回傳 [{text, frac}]：每個 [音效] 在旁白時間軸上的大約位置比例（0~1）。
+    frac = 這個音效之前已經有幾句旁白 / 總旁白句數。"""
+    spoken = 0
+    out = []
+    for b in parse(text):
+        if b["kind"] == "sfx" and b["text"]:
+            out.append({"text": b["text"], "spoken_before": spoken})
+        elif b["kind"] in ("narration", "dialogue") and b["text"]:
+            spoken += 1
+    total = max(1, spoken)
+    for o in out:
+        o["frac"] = min(1.0, o["spoken_before"] / total)
+    return out
 
 
 if __name__ == "__main__":
