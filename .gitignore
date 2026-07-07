@@ -2,6 +2,9 @@
 output/
 _tmp/
 
+# 你的聲音參考檔（隱私，絕不推上公開 GitHub）
+voice/
+
 # Python / 暫存
 __pycache__/
 *.pyc

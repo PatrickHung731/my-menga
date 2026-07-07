@@ -46,7 +46,13 @@ D:\MangaStudio 是 git repo，remote origin = https://github.com/PatrickHung731/
 **唸整篇原始小說**（`output\<slug>\script.txt`，story2manga 生成時自動存的原始 story 全文；沒有才退回串接對白）→ 切句 → 逐句 Edge-TTS → 所有乾淨畫格(panels/)平均分配到旁白時間軸 → 燒字幕 → MP4（1080x1440）。
 做法=**聯合時間軸**（畫格切換點∪句子切換點各一張已燒字幕 frame，concat 成 CFR 幻燈片，再 mux 整段旁白音軌）；ffmpeg 8 注意：`-fps_mode` 不能配 `-r`，幻燈片用純 `-r`。
 配音=**Edge-TTS**（免費/免GPU/免金鑰但**需連網**）。voice key（VOICES）：xiaoxiao(曉曉·最自然,預設) / xiaoyi / yunxi / yunjian(熱血) / yunyang / tw_male / tw_female。試聽檔 `output\_voice_samples\`（7 種）。--color/--bw 選彩色黑白（預設依該話）；--limit N 只唸前 N 句試做。輸出 output/（gitignore 不進 repo）。相依 edge-tts（已裝 ComfyUI venv）。
-※ 若嫌 Edge-TTS 太生硬，下一級是本機表情語音模型（CosyVoice/ChatTTS，需另裝+GPU），尚未接。
+### 本機克隆語音 F5-TTS（--engine f5 / 工作台 [v] 選「你的克隆聲音」）
+2026-07-07 裝好，用來克隆使用者自己的聲音（比 Edge-TTS 生動、且是本人音色）。
+- 獨立 venv `D:\LocalAI\f5tts_venv`（torch 2.6.0+cu124，**不碰 ComfyUI venv**）。`pip install f5-tts` + torch cu124。
+- **坑1**：torchaudio 2.6 預設走 torchcodec，Windows 缺 FFmpeg 共享 DLL→`pip uninstall torchcodec`，torchaudio 改用 soundfile 讀 wav（已處理）。
+- **坑2**：F5 會 print whisper 轉錄的簡體字，cp950 console 會 UnicodeEncodeError→跑時設 `PYTHONUTF8=1`（f5_tts_batch.py 已 setdefault）。
+- 參考音檔：`voice\patrick_ref_*.wav`（從 D:\原F\CAPCUT\build\rvc_model\vocal_01.wav=使用者**說話**錄音抽的，非唱歌，適合克隆）。**voice/ 已 gitignore（隱私，不推公開 repo）**。RVC 的 .pth 不能給 F5/CosyVoice 用（不同架構），但 vocal_01.wav 可當克隆參考。
+- 架構：narrate.py(ComfyUI venv) 把句子寫 job.json → subprocess 呼叫 `f5tts_venv\python f5_tts_batch.py`（載模型一次、逐句克隆 wav）→ narrate 收 wav 續走時間軸。試聽 `output\_voice_samples\08_你的聲音_F5克隆.wav`。
 
 ## 字級（對白/旁白太小或擋到角色）
 

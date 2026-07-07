@@ -47,6 +47,11 @@ DEFAULT_VOICE = "xiaoxiao"
 VW, VH = 1080, 1440
 FPS = 30
 BG = (18, 18, 18)
+
+# F5-TTS（本機克隆語音）跑在自己的 venv
+F5_VENV_PY = r"D:\LocalAI\f5tts_venv\Scripts\python.exe"
+F5_BATCH = str(Path(__file__).resolve().parent / "f5_tts_batch.py")
+F5_DEFAULT_REF = str(ROOT / "voice" / "patrick_ref_300s.wav")
 FONT_BOLD = [r"C:\Windows\Fonts\msjhbd.ttc", r"C:\Windows\Fonts\msjh.ttc"]
 _fc = {}
 
@@ -183,10 +188,31 @@ async def tts(text, voice, path):
     await edge_tts.Communicate(text, voice).save(str(path))
 
 
+def synth_f5(sentences, ref_audio, tmp):
+    """用 F5-TTS（另一個 venv）批次克隆，回傳每句的 wav 路徑（失敗為 None）。"""
+    job = tmp / "f5job.json"
+    outdir = tmp / "f5out"
+    outdir.mkdir(exist_ok=True)
+    job.write_text(json.dumps({
+        "ref_audio": ref_audio, "ref_text": "",
+        "sentences": sentences, "out_dir": str(outdir),
+    }, ensure_ascii=False), encoding="utf-8")
+    print("[有聲漫畫] 用你的克隆聲音配音中（F5-TTS，第一次會載模型）...")
+    subprocess.run([F5_VENV_PY, F5_BATCH, str(job)])
+    res = []
+    for i in range(len(sentences)):
+        w = outdir / ("%04d.wav" % i)
+        res.append(w if w.exists() else None)
+    return res
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("storyboard")
     ap.add_argument("--voice", default=DEFAULT_VOICE, help="|".join(VOICES))
+    ap.add_argument("--engine", default="edge", choices=["edge", "f5"],
+                    help="edge=Edge-TTS(預設) / f5=你的本機克隆聲音")
+    ap.add_argument("--ref-audio", default=F5_DEFAULT_REF, help="f5 用的參考音檔")
     grp = ap.add_mutually_exclusive_group()
     grp.add_argument("--color", action="store_true")
     grp.add_argument("--bw", action="store_true")
@@ -215,23 +241,36 @@ def main():
     out_mp4 = Path(args.out) if args.out else ROOT / "output" / title / (title + "_narrated.mp4")
     out_mp4.parent.mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="narrate_"))
+    vname = "你的克隆聲音" if args.engine == "f5" else args.voice
     print("[有聲漫畫] 《%s》唸小說全文：%d 句、%d 畫格，聲音=%s（%s）"
-          % (title, len(sentences), len(panels), args.voice, "彩色" if color else "黑白"))
+          % (title, len(sentences), len(panels), vname, "彩色" if color else "黑白"))
 
-    # 1) 逐句配音（尾端加 0.3s 停頓），記錄每句時長
+    # 1) 先配音：f5=一次批次克隆；edge=逐句雲端
+    raw_list = [None] * len(sentences)
+    if args.engine == "f5":
+        raw_list = synth_f5(sentences, args.ref_audio, tmp)
+    else:
+        for i, s in enumerate(sentences):
+            raw = tmp / ("r%04d.mp3" % i)
+            try:
+                asyncio.run(tts(s, voice, raw))
+                raw_list[i] = raw
+            except Exception as e:
+                print("  [警告] 配音失敗：%s" % e)
+            if (i + 1) % 8 == 0:
+                print("  配音 %d/%d" % (i + 1, len(sentences)))
+
+    # 每句尾端加 0.3s 停頓、統一成 m4a，記錄時長
     durs, audios = [], []
-    for i, s in enumerate(sentences):
-        raw = tmp / ("r%04d.mp3" % i)
-        try:
-            asyncio.run(tts(s, voice, raw))
-        except Exception as e:
-            print("  [警告] 配音失敗：%s" % e); continue
+    valid_sents = []
+    for i, raw in enumerate(raw_list):
+        if raw is None or not Path(raw).exists():
+            continue
         pad = tmp / ("a%04d.m4a" % i)
         subprocess.run([FFMPEG, "-y", "-i", str(raw), "-af", "apad=pad_dur=0.3",
                         "-c:a", "aac", "-b:a", "160k", str(pad)], capture_output=True)
-        durs.append(audio_dur(pad)); audios.append(pad)
-        if (i + 1) % 8 == 0:
-            print("  配音 %d/%d" % (i + 1, len(sentences)))
+        durs.append(audio_dur(pad)); audios.append(pad); valid_sents.append(sentences[i])
+    sentences = valid_sents
     if not audios:
         print("[!] 配音全部失敗（需連網）"); sys.exit(1)
 

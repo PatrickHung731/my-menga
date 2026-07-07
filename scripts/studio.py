@@ -355,6 +355,7 @@ def do_narrate():
     print("唸的是整篇小說原文（生成時存的 script.txt），乾淨畫格自動平均分配。")
     print("選配音（先去 output\\_voice_samples\\ 試聽）：")
     voice_menu = [
+        ("f5", "★ 你的克隆聲音（本機 F5-TTS，最生動）"),
         ("xiaoxiao", "曉曉 陸女·最自然"),
         ("xiaoyi", "曉伊 陸女·年輕活潑"),
         ("yunxi", "雲希 陸男·年輕有活力"),
@@ -369,10 +370,14 @@ def do_narrate():
     try:
         voice = voice_menu[int(vc) - 1][0]
     except Exception:
-        voice = "xiaoxiao"
+        voice = "f5"
     col = ask("彩色還黑白？(Enter=依這話設定 / c=彩色 / b=黑白) > ").lower()
     lim = ask("先試做前幾句？(Enter=整篇 / 輸入數字=只唸前 N 句) > ")
-    cmd = ["narrate.py", str(sb_json), "--voice", voice]
+    cmd = ["narrate.py", str(sb_json)]
+    if voice == "f5":
+        cmd += ["--engine", "f5"]
+    else:
+        cmd += ["--voice", voice]
     if col == "c":
         cmd.append("--color")
     elif col == "b":
