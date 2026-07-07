@@ -5,6 +5,11 @@ _tmp/
 # 你的聲音參考檔（隱私，絕不推上公開 GitHub）
 voice/
 
+# YouTube / 金鑰（機密，絕不推上公開 GitHub）
+client_secrets.json
+youtube_token.json
+*token*.json
+
 # Python / 暫存
 __pycache__/
 *.pyc

@@ -123,6 +123,8 @@ def main():
                     help="對白語言：auto=依故事自動判定(預設) / zh / en / ja")
     ap.add_argument("--no-deploy", action="store_true",
                     help="這次不要自動發布到網站/GitHub")
+    ap.add_argument("--narrated", action="store_true",
+                    help="有聲小說模式：只生乾淨無對白圖，不拼氣泡頁、不自動發布（交給 narrate/上傳）")
     args = ap.parse_args()
 
     story = Path(args.story).read_text(encoding="utf-8")
@@ -208,7 +210,8 @@ def main():
     if args.redo:
         cmd.append("--redo")
     run(cmd)
-    run([sys.executable, str(HERE / "compose_pages.py"), str(sb_path)])
+    if not args.narrated:            # 有聲小說模式不拼氣泡頁（要無對白乾淨圖）
+        run([sys.executable, str(HERE / "compose_pages.py"), str(sb_path)])
 
     # ---- 存一份「要唸的劇本」＝原始小說全文（給有聲漫畫 narrate.py 用）----
     out_root = ROOT / "output" / sb["title"]
@@ -243,7 +246,7 @@ def main():
                             "--series", series["name"]])
 
     # ---- 自動發布：出稿後生網站 + 推 GitHub（連載模式、且是 git repo 才做）----
-    if series is not None and not args.no_deploy and (ROOT / ".git").exists():
+    if series is not None and not args.no_deploy and not args.narrated and (ROOT / ".git").exists():
         print("\n[deploy] 出稿完成，自動發布到網站 + GitHub ...")
         subprocess.run([sys.executable, str(HERE / "deploy.py")])
 

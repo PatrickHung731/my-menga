@@ -6,8 +6,10 @@ txt 路徑可以直接把檔案「拖進這個視窗」再按 Enter。
 """
 import json
 import os
+import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -17,6 +19,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SERIES_DIR = ROOT / "series"
 PY = sys.executable
 SCRIPTS = ROOT / "scripts"
+F5_REFS = {
+    "f5_60": ROOT / "voice" / "patrick_ref_60s.wav",
+    "f5_300": ROOT / "voice" / "patrick_ref_300s.wav",
+    "f5_600": ROOT / "voice" / "patrick_ref_600s.wav",
+}
 
 if not sys.stdout.isatty():
     try:
@@ -95,10 +102,7 @@ def set_default(name):
     (SERIES_DIR / "default.txt").write_text(name, encoding="utf-8")
 
 
-def ask_txt():
-    p = ask("故事 txt 路徑（把檔案拖進這視窗再按 Enter）> ")
-    if not p:
-        return None
+def resolve_txt_path(p):
     path = Path(p)
     if not path.exists():
         alt = ROOT / "stories" / p
@@ -107,6 +111,13 @@ def ask_txt():
         print("[!] 找不到檔案:", p)
         return None
     return path
+
+
+def ask_txt():
+    p = ask("故事 txt 路徑（把檔案拖進這視窗再按 Enter）> ")
+    if not p:
+        return None
+    return resolve_txt_path(p)
 
 
 def open_pages(slug):
@@ -133,6 +144,55 @@ def pick_episode(s, msg="哪一話？"):
         print("[!] 沒有第 %d 話" % n)
         return None
     return "%s_ep%02d" % (s["name"], n)
+
+
+def storyboard_slug(path):
+    try:
+        sb = json.loads(path.read_text(encoding="utf-8"))
+        return sb.get("title") or path.stem
+    except Exception:
+        return path.stem
+
+
+def slugify_name(text, fallback="audio_novel"):
+    s = re.sub(r"[^a-zA-Z0-9_-]+", "_", str(text)).strip("_").lower()
+    s = re.sub(r"_+", "_", s)
+    return s or fallback
+
+
+def unique_story_slug(txt):
+    base = slugify_name(Path(txt).stem)
+    slug = base
+    if (ROOT / "storyboards" / (slug + ".json")).exists() or (ROOT / "output" / slug).exists():
+        slug = "%s_%s" % (base, time.strftime("%m%d_%H%M%S"))
+    return slug
+
+
+def pick_storyboard_file():
+    files = sorted((ROOT / "storyboards").glob("*.json"),
+                   key=lambda p: p.stat().st_mtime, reverse=True)
+    if not files:
+        print("[!] 找不到任何分鏡檔。先用 [7] 做單篇，或用 [1] 出一話。")
+        return None, None
+    print("目前沒有進行中的連載。請選一個已生成的分鏡來做有聲影片：")
+    entries = files[:30]
+    for i, f in enumerate(entries, 1):
+        label = f.stem
+        extra = ""
+        try:
+            sb = json.loads(f.read_text(encoding="utf-8"))
+            label = sb.get("title") or label
+            extra = "，%d 頁" % len(sb.get("pages", []))
+        except Exception:
+            extra = "，分鏡檔讀取有問題"
+        print("  [%d] %s（%s%s）" % (i, label, f.name, extra))
+    c = ask("選分鏡（Enter=最新）> ", "1")
+    try:
+        f = entries[int(c) - 1]
+    except Exception:
+        print("[!] 選擇無效")
+        return None, None
+    return storyboard_slug(f), f
 
 
 def do_episode(final=False):
@@ -340,29 +400,78 @@ def do_restyle():
         _offer_deploy()
 
 
-def do_narrate():
+def pick_existing_narrate_storyboard():
     s = current_series()
-    if s is None:
-        print("[!] 沒有進行中的連載。")
-        return
-    slug = pick_episode(s, "要把哪一話做成有聲漫畫影片？")
-    if slug is None:
-        return
+    if s is not None:
+        mode = ask("選現有來源：Enter=目前連載選一話 / a=全部分鏡清單 > ").lower()
+        if mode == "a":
+            return pick_storyboard_file()
+        slug = pick_episode(s, "要把哪一話做成有聲漫畫影片？")
+        if slug is None:
+            return None, None
+        sb_json = ROOT / "storyboards" / (slug + ".json")
+        if not sb_json.exists():
+            print("[!] 找不到分鏡檔:", sb_json)
+            return None, None
+        return storyboard_slug(sb_json), sb_json
+    return pick_storyboard_file()
+
+
+def build_audio_novel_storyboard(txt):
+    slug = unique_story_slug(txt)
+    print("有聲小說模式：先依 TXT 自動分鏡/分頁/生圖，再用乾淨畫格配音加字幕。")
+    print("影片會使用 output\\%s\\panels\\ 的無對白畫格，不用 pages\\ 的對白頁。" % slug)
+    style = choose_style()
+
+    pages = ask("最多生成幾頁？(Enter=8；編劇會在上限內自動分頁 / 0=不限制) > ", "8")
+    try:
+        max_pages = int(pages)
+    except ValueError:
+        print("[!] 不是數字，用預設 8 頁上限。")
+        max_pages = 8
+
+    color = ask("彩色？(y=彩色 / Enter=黑白漫畫) > ").lower() == "y"
+    r = ask("內容分級？(Enter=全年齡 / 2=R15 血腥+成年角色輕度性感,無裸露) > ")
+    rating = "r15" if r.strip() == "2" else "safe"
+    lg = ask("字幕/對白語言？(Enter=跟著故事自動判定 / z=中文 / e=英文 / j=日文) > ").lower()
+    lang = {"z": "zh", "e": "en", "j": "ja"}.get(lg, "auto")
+
+    cmd = ["story2manga.py", txt, "--oneshot", "--narrated", "--style", style,
+           "--out", slug, "--rating", rating, "--lang", lang]
+    if max_pages > 0:
+        cmd += ["--max-pages", str(max_pages)]
+    if color:
+        cmd.append("--color")
+
+    print("輸出代號：%s" % slug)
+    if not run(*cmd):
+        return None, None
+
     sb_json = ROOT / "storyboards" / (slug + ".json")
     if not sb_json.exists():
-        print("[!] 找不到分鏡檔:", sb_json)
-        return
+        print("[!] 已跑完生圖，但找不到分鏡檔：", sb_json)
+        return None, None
+    return storyboard_slug(sb_json), sb_json
+
+
+def run_narrate_for_storyboard(slug, sb_json):
     print("唸的是整篇小說原文（生成時存的 script.txt），乾淨畫格自動平均分配。")
     print("選配音（先去 output\\_voice_samples\\ 試聽）：")
     voice_menu = [
-        ("f5", "★ 你的克隆聲音（本機 F5-TTS，最生動）"),
+        ("f5_300", "★ 你的克隆聲音 F5（300秒參考，平衡）"),
+        ("f5_60", "你的克隆聲音 F5（60秒參考，較乾淨）"),
+        ("f5_600", "你的克隆聲音 F5（600秒參考，音色資訊最多）"),
         ("xiaoxiao", "曉曉 陸女·最自然"),
         ("xiaoyi", "曉伊 陸女·年輕活潑"),
         ("yunxi", "雲希 陸男·年輕有活力"),
         ("yunjian", "雲健 陸男·熱血激昂"),
         ("yunyang", "雲揚 陸男·沉穩旁白"),
+        ("yunxia", "雲夏 陸男·可愛少年"),
         ("tw_male", "雲哲 台灣男"),
         ("tw_female", "曉臻 台灣女"),
+        ("tw_girl", "曉雨 台灣女"),
+        ("hk_female", "曉佳 香港女"),
+        ("hk_male", "雲龍 香港男"),
     ]
     for i, (k, zh) in enumerate(voice_menu, 1):
         print("  [%d] %s (%s)" % (i, zh, k))
@@ -370,12 +479,31 @@ def do_narrate():
     try:
         voice = voice_menu[int(vc) - 1][0]
     except Exception:
-        voice = "f5"
+        voice = "f5_300"
     col = ask("彩色還黑白？(Enter=依這話設定 / c=彩色 / b=黑白) > ").lower()
     lim = ask("先試做前幾句？(Enter=整篇 / 輸入數字=只唸前 N 句) > ")
+    edit = ask("要先校對字幕稿嗎？(Enter=開啟字幕稿 / n=直接生成 / r=重建字幕稿再開) > ").lower()
+    if edit != "n":
+        prep = ["narrate.py", str(sb_json), "--prepare-subtitles"]
+        if edit == "r":
+            prep.append("--regen-subtitles")
+        if not run(*prep):
+            return
+        subtitle_file = ROOT / "output" / slug / "subtitle_script.txt"
+        try:
+            os.startfile(str(subtitle_file))
+        except Exception:
+            print("字幕稿位置：", subtitle_file)
+        ask("改好字幕稿並存檔後，回來按 Enter 開始配音/合成 > ")
     cmd = ["narrate.py", str(sb_json)]
-    if voice == "f5":
+    if voice.startswith("f5_"):
+        ref = F5_REFS.get(voice)
+        if ref and not ref.exists():
+            print("[!] 找不到 F5 參考音檔：%s" % ref)
+            return
         cmd += ["--engine", "f5"]
+        if ref:
+            cmd += ["--ref-audio", str(ref)]
     else:
         cmd += ["--voice", voice]
     if col == "c":
@@ -384,13 +512,68 @@ def do_narrate():
         cmd.append("--bw")
     if lim.isdigit():
         cmd += ["--limit", lim]
+        
+    dur = ask("每張圖片最少停留幾秒？(Enter=隨配音長短自動決定 / 數字=最低秒數，例: 5) > ")
+    try:
+        if dur and float(dur) > 0:
+            cmd += ["--img-dur", dur]
+    except ValueError:
+        pass
+        
     if run(*cmd):
         vid = ROOT / "output" / slug / (slug + "_narrated.mp4")
+        print("有聲漫畫影片好了：%s" % vid)
+        
+        # ── YouTube 上傳 ──
+        s = current_series()
+        yt_title = (s.get("title_zh") if s else None) or slug
+        if "_ep" in slug:
+            yt_title += " 第%s話" % slug.split("_ep")[-1]
+        if (ROOT / "client_secrets.json").exists():
+            if ask("\n要自動上傳到 YouTube 嗎？(Enter=是 / n=先不要) > ").lower() != "n":
+                pv = ask("隱私？(Enter=unlisted有連結才看 / p=私人 / o=公開) > ").lower()
+                privacy = {"p": "private", "o": "public"}.get(pv, "unlisted")
+                print("上傳中（第一次會開瀏覽器要你登入/授權 Google）...")
+                # 邊上傳邊顯示，同時把輸出收下來抓 YouTube_ID
+                res = subprocess.run(
+                    [PY, str(SCRIPTS / "upload_youtube.py"), "--file", str(vid),
+                     "--title", yt_title, "--desc", "AI 生成有聲小說漫畫。",
+                     "--privacy", privacy],
+                    text=True, encoding="utf-8", errors="replace",
+                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                print(res.stdout)
+                m = re.search(r"YouTube_ID=([0-9A-Za-z_-]{11})", res.stdout or "")
+                if m:
+                    yt_id = m.group(1)
+                    print("✅ 上傳成功：https://youtu.be/%s" % yt_id)
+                    if s:
+                        for ep in s.get("episodes", []):
+                            if ep.get("slug") == slug:
+                                ep["youtube_id"] = yt_id; save_series(s); break
+                else:
+                    print("[!] 沒抓到影片 ID，可能上傳失敗或需重新授權（看上面訊息）。")
+        else:
+            print("（找不到 client_secrets.json，略過自動上傳）")
         try:
             os.startfile(str(vid))
         except Exception:
             open_pages(slug)
-        print("有聲漫畫影片好了：output\\%s\\%s_narrated.mp4" % (slug, slug))
+
+
+def do_narrate():
+    p = ask("小說 txt 路徑（拖入 TXT 開始有聲小說；輸入 e=選現有話/分鏡重做影片）> ")
+    if not p:
+        return
+    if p.lower() in ("e", "old", "existing"):
+        slug, sb_json = pick_existing_narrate_storyboard()
+    else:
+        txt = resolve_txt_path(p)
+        if txt is None:
+            return
+        slug, sb_json = build_audio_novel_storyboard(txt)
+    if sb_json is None:
+        return
+    run_narrate_for_storyboard(slug, sb_json)
 
 
 def do_textsize():
@@ -563,7 +746,7 @@ def main():
  [4] 改對白/搬氣泡 → 重拼頁      [8] 連載狀態/各話提要
  [9] 重新生成封面                 [p] 發布網站 / 推上 GitHub
  [s] 改整部畫風（全部重畫）       [c] 改某個角色（重繪他的分格）
- [t] 調對白/旁白字級大小          [v] 生成有聲漫畫影片（台灣配音）
+ [t] 調對白/旁白字級大小          [v] 生成有聲漫畫/小說影片（可校字幕）
  [d] 刪除作品（清空生成資料）     [0] 離開""")
         c = ask("選功能 > ")
         try:
